@@ -16,7 +16,7 @@
  *
  * <p>*******************************************************************************
  */
-package com.securityinnovation.jNeo;
+package com.securityinnovation.jNeo.util;
 
 import com.securityinnovation.jNeo.inputstream.X982Drbg;
 import com.securityinnovation.jNeo.digest.Sha256;
@@ -41,7 +41,7 @@ import static com.securityinnovation.jNeo.digest.DigestAlgorithm.sha256;
  */
 public class Random {
   /* The PRNG. */
-  X982Drbg rng;
+  public X982Drbg rng;
 
   /*
    * Constructor that initializes the PRNG with the supplied seed.

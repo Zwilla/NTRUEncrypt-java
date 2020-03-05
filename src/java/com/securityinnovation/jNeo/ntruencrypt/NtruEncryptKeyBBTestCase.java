@@ -18,7 +18,6 @@
  */
 package com.securityinnovation.jNeo.ntruencrypt;
 
-import com.securityinnovation.jNeo.ntruencrypt.NtruEncryptKey;
 import java.util.Arrays;
 
 import org.junit.Test;
@@ -26,7 +25,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import com.securityinnovation.jNeo.OID;
-import com.securityinnovation.jNeo.Random;
+import com.securityinnovation.jNeo.util.Random;
 import com.securityinnovation.jNeo.NtruException;
 import com.securityinnovation.jNeo.CiphertextBadLengthException;
 import com.securityinnovation.jNeo.PlaintextBadLengthException;

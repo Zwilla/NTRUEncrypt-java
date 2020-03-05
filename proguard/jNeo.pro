@@ -8,7 +8,7 @@
     public *;
 }
 
--keep public class com.securityinnovation.jNeo.Random {
+-keep public class com.securityinnovation.jNeo.util.Random {
     public *;
 }
 -keep public class com.securityinnovation.jNeo.ntruencrypt.NtruEncryptKey {

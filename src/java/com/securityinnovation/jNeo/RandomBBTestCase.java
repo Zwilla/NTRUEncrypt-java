@@ -18,6 +18,7 @@
  */
 package com.securityinnovation.jNeo;
 
+import com.securityinnovation.jNeo.util.Random;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

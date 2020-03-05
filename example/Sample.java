@@ -36,7 +36,7 @@ import javax.crypto.spec.IvParameterSpec;
 
 import com.securityinnovation.jNeo.NtruException;
 import com.securityinnovation.jNeo.OID;
-import com.securityinnovation.jNeo.Random;
+import com.securityinnovation.jNeo.util.Random;
 import com.securityinnovation.jNeo.ntruencrypt.NtruEncryptKey;
 
 
@@ -237,7 +237,7 @@ public class Sample
 
 
     /**
-     * Creates a com.securityinnovation.jNeo.Random object seeded with entropy from
+     * Creates a com.securityinnovation.jNeo.util.Random object seeded with entropy from
      * java.util.Random.
      */
     static Random createSeededRandom()

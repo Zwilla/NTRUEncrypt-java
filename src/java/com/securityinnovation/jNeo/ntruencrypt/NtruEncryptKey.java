@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import com.securityinnovation.jNeo.OID;
-import com.securityinnovation.jNeo.Random;
+import com.securityinnovation.jNeo.util.Random;
 import com.securityinnovation.jNeo.RandomExtractor;
 import com.securityinnovation.jNeo.CiphertextBadLengthException;
 import com.securityinnovation.jNeo.DecryptionFailureException;

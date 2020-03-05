@@ -22,18 +22,13 @@ import java.io.IOException;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 
-import com.securityinnovation.jNeo.util.HexDump;
-import com.securityinnovation.jNeo.math.BitPack;
 import com.securityinnovation.jNeo.OID;
 import com.securityinnovation.jNeo.OIDMap;
 import com.securityinnovation.jNeo.NtruException;
-import com.securityinnovation.jNeo.Random;
-import com.securityinnovation.jNeo.digest.*;
+import com.securityinnovation.jNeo.util.Random;
 import com.securityinnovation.jNeo.ntruencrypt.NtruEncryptKey;
 // import com.securityinnovation.jNeo.ntruencrypt.TVDump;
 import com.securityinnovation.jNeo.digest.Sha256;
-
-import static com.securityinnovation.jNeo.digest.DigestAlgorithm.*;
 
 public class NtruEncryptTestVectorGenerator {
   public static byte[] m = {0x41, 0x42, 0x43};
