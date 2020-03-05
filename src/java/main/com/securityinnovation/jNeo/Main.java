@@ -246,13 +246,12 @@ public class Main {
     System.out.println("  --pubkey <filename>");
     System.out.println("  --privkey <filename>");
     System.out.println("  --encrypt <inFileName> <outFileName>");
-    System.out.println("  --decrypt <inFileName> <outFileName>");
-    System.out.println("EXAMPLE: $java -jar jNeo --privkey privKey.key --pubkey pubKey.key --encrypt TestFilePlain.xml ");
-    System.out.println("EXAMPLE: $java -jar jNeo --privkey privKey.key --pubkey pubKey.key --encryptPrivate TestFilePlain.xml ");
-    System.out.println("EXAMPLE: $java -jar jNeo --privkey privKey.key --pubkey pubKey.key --decrypt TestFilePlain.xml.dec ");
+    System.out.println("  --decrypt <inFileName> <outFileName>\n");
+    System.out.println("EXAMPLE (make keys): $java -jar jNeo.jar --setup");
+    System.out.println("EXAMPLE (encrypt)  : $java -jar jNeo.jar --privkey privKey.key --pubkey pubKey.key --encrypt TestFilePlain.xml ");
+    System.out.println("EXAMPLE (encrypt)  : $java -jar jNeo.jar --privkey privKey.key --pubkey pubKey.key --encryptPrivate TestFilePlain.xml ");
+    System.out.println("EXAMPLE (decrypt)  : $java -jar jNeo.jar --privkey privKey.key --pubkey pubKey.key --decrypt TestFilePlain.xml.pub.enc");
 
-    // --setup --encrypt TestFilePlain.xml TestFilePlain.xml.enc
-// --setup --decrypt TestFilePlain.xml.enc
   }
 
   /**
@@ -473,6 +472,10 @@ public class Main {
           }
         default:
           {
+            if(i <=1){
+              usage();
+            }
+            System.out.print("i is:" + i);
             break;
           }
       }
