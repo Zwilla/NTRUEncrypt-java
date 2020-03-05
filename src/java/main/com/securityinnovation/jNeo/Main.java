@@ -28,6 +28,7 @@ import java.io.DataInputStream;
 import java.io.OutputStream;
 import java.io.FileOutputStream;
 import java.io.DataOutputStream;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -288,6 +289,36 @@ public class Main {
     if(args.length == 0){
       usage();
     }
+
+    for (int i = 0; i < args.length; i++) {
+
+      switch (args[i]) {
+        case "--pubkey":
+        {
+          if (args[i + 1].startsWith("--")) {
+            usage();
+            System.exit(1);
+          }
+          // Setup PRNG
+          pubkeyFile = args[i + 1];
+          break;
+        }
+
+        case "--privKey":
+        {
+          if (args[i + 1].startsWith("--")) {
+            usage();
+            System.exit(1);
+          }
+          // Setup PRNG
+          privkeyFile = args[i + 1];
+          break;
+        }
+
+      }
+
+    }
+
     for (int i = 0; i < args.length; i++) {
 
       System.out.println("args[" + i + "]: " + args[i] + "\n");
@@ -374,7 +405,9 @@ public class Main {
             }
             if (privkeyFileFound || pubkeyFileFound)
             {
-              System.out.print("PublicKey or PrivateKey found, move them first to a secure place! bye!\n");
+              System.out.printf("%s and/or %s found, move them first to a secure place! bye!\n",
+                      FileSystems.getDefault().getPath(privkeyFile).toAbsolutePath(),
+                      FileSystems.getDefault().getPath(pubkeyFile).toAbsolutePath());
               System.exit(1);
               break;
             }
@@ -469,7 +502,7 @@ public class Main {
             }
 
             inFileName = args[i + 1];
-            System.out.printf("we decrypt now: %s  to FILE: %s\n%n", inFileName, outFileName);
+            System.out.printf("we decrypt now: %nSOURCE  :%s%nTARGET  :%s %nwith KEY:%s %n", FileSystems.getDefault().getPath(inFileName).toAbsolutePath(), FileSystems.getDefault().getPath(outFileName).toAbsolutePath(), FileSystems.getDefault().getPath(privkeyFile).toAbsolutePath());
 
             NtruEncryptKey privKey = loadKey(privkeyFile);
             decryptFile(privKey, args[i + 1], outFileName);
