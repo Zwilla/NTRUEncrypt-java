@@ -285,6 +285,9 @@ public class Main {
       System.out.println("PrivatKey found!");
     }
 
+    if(args.length == 0){
+      usage();
+    }
     for (int i = 0; i < args.length; i++) {
 
       System.out.println("args[" + i + "]: " + args[i] + "\n");
@@ -369,6 +372,12 @@ public class Main {
                   }
               }
             }
+            if (privkeyFileFound || pubkeyFileFound)
+            {
+              System.out.print("PublicKey or PrivateKey found, move them first to a secure place! bye!\n");
+              System.exit(1);
+              break;
+            }
             setupNtruEncryptKey(prng, oid, pubkeyFile, privkeyFile);
             break;
           }
@@ -440,7 +449,9 @@ public class Main {
         }
 
         case "--decrypt":
+          if (privkeyFileFound)
           {
+            {
             if (args[i + 1].startsWith("--")) {
               usage();
             }
@@ -463,6 +474,7 @@ public class Main {
             NtruEncryptKey privKey = loadKey(privkeyFile);
             decryptFile(privKey, args[i + 1], outFileName);
             break;
+            }
           }
 
         case "--help":
@@ -475,7 +487,6 @@ public class Main {
             if(i <=1){
               usage();
             }
-            System.out.print("i is:" + i);
             break;
           }
       }
