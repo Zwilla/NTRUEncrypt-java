@@ -11,7 +11,7 @@ Open Source NTRU Public Key Cryptography Algorithm and Reference Code
 ### None official
 * for this Java lib Repro <Michael.Padilla@zwilla.de>
 
-Contacts may be reached by sending mail to (ntru-crypto@securityinnovation.com)[mail://ntru-crypto@securityinnovation.com]
+Contacts may be reached by sending mail to [ntru-crypto@securityinnovation.com](mail://ntru-crypto@securityinnovation.com)
 
 ## Project Overview
 Security Innovation, Inc., the owner of the NTRU public key cryptography system, made the intellectual property and a
@@ -31,7 +31,7 @@ said executive director Cynthia Fuller of Accredited Standards Committee X9 -Fin
 
 
 For additional overview information click
-(https://www.securityinnovation.com)[https://www.securityinnovation.com/products/encryption-libraries/ntru-cryptography.html]
+[https://www.securityinnovation.com](https://www.securityinnovation.com/products/encryption-libraries/ntru-cryptography.html)
 
 
 ## FAQ
@@ -93,7 +93,6 @@ Secure encryption reduces the chances of costly data breaches, improves privacy 
 reducing the need for some intrusion detection systems and other security solutions.
 
 ### What is NTRU's history and peer review?
----------------------------------------
 NTRU was invented in 1996 based on a completely different mathematical problems from RSA and Elliptic Curve called the 
 “Approximate close lattice vector problem.”  It has been published, reviewed in scholarly journals, and presented at 
 Crypto, Eurocrypt, RSA. The NTRU approach to lattice-based cryptography, which uses a particular type of lattice known 
@@ -109,14 +108,14 @@ Now that NTRU is available under an open source license, the algorithm will rece
 
 
 ### How fast is NTRU?
------------------
 At comparable cryptographic strength, NTRU performs private key operations 20x to 200x faster than openSSL RSA.  
 Faster means less processing time (cheaper) and offers the ability to encrypt more data (more secure).  
 In addition, as key sizes (security levels) increase by n, RSA's operations/second decrease at a rate of n3 whereas 
-NTRU's decrease at n2. A University of Leuven (read more...)[http://link.springer.com/chapter/10.1007%2F978-3-642-11925-5_6] 
+NTRU's decrease at n2. A University of Leuven [read more...](http://link.springer.com/chapter/10.1007%2F978-3-642-11925-5_6) 
 report states "NTRU is extremely fast on parallelizable processors."  
 Ari Juels, Chief Scientist, RSA Labs stated, "[NTRU] is considerably faster; that is something we acknowledge" 
-(read more...)[http://www.networkworld.com/news/2011/042011-ntrue-algorithm-x9.html]
+[read more...](http://www.networkworld.com/news/2011/042011-ntrue-algorithm-x9.html)
+
 
 |   |   |   |   |   |   |   |   |
 |---|---|---|---|---|---|---|---|
@@ -183,7 +182,7 @@ We don’t think a single encryption solution is the best idea, regardless of th
 Double encryption using two fast algorithms such as NTRU plus another post-quantum crypto algorithm, or even ECC, 
 would provide far greater security at a considerable higher performance than RSA alone today.  
 Our Chief Scientist, William Whyte, wrote a blog post on this subject. 
-(read more...)[http://blog.securityinnovation.com/blog/2013/08/king-rsa-cryptos-successor-why-we-need-to-move-away-from-a-monarchy.html]
+[read more...](http://blog.securityinnovation.com/blog/2013/08/king-rsa-cryptos-successor-why-we-need-to-move-away-from-a-monarchy.html)
 
 ### Doesn’t open sourcing make NTRU implementations more vulnerable to hackers?
 On the contrary:  NTRU has been tested by several external groups in addition to the commercial implementations over 
@@ -208,5 +207,5 @@ level. So the answer to "Does NTRU decrypt correctly now?" is "Yes!" (except wit
 
 
 ### Where can I get more technical information
-Go to (https://www.securityinnovation.com)[https://www.securityinnovation.com/products/encryption-libraries/ntru-crypto/ntru-resources.html] 
+Go to [https://www.securityinnovation.com](https://www.securityinnovation.com/products/encryption-libraries/ntru-crypto/ntru-resources.html) 
 which is where we’ve collected a boatload of content on NTRU including NIST reports, the math and other very useful stuff.
