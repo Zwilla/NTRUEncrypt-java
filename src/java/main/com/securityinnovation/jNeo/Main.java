@@ -304,7 +304,7 @@ public class Main {
           break;
         }
 
-        case "--privKey":
+        case "--privkey":
         {
           if (args[i + 1].startsWith("--")) {
             usage();
@@ -314,9 +314,9 @@ public class Main {
           privkeyFile = args[i + 1];
           break;
         }
-
+        default:
+          break;
       }
-
     }
 
     for (int i = 0; i < args.length; i++) {
@@ -328,12 +328,12 @@ public class Main {
           System.out.println("args[" + i + "]: " + args[i + 1] + "\n");
         } else {
           System.out.println(
-              "we do a key setup now, you will find your keys at the top folder where you executed this app\n"
+              "we do a key setup now, you will find your keys at the top folder where you executed this app%n"
                   + "PrivKey_Filename: "
-                  + privkeyFile
-                  + "\n"
+                  + FileSystems.getDefault().getPath(privkeyFile).toAbsolutePath()
+                  + "%n"
                   + "PubKey_Filename : "
-                  + pubkeyFile
+                  + FileSystems.getDefault().getPath(pubkeyFile).toAbsolutePath()
                   + "\n");
         }
       } catch (Exception e) {
@@ -352,7 +352,7 @@ public class Main {
             break;
           }
 
-        case "--privKey":
+        case "--privkey":
           {
             if (args[i + 1].startsWith("--")) {
               usage();
@@ -381,7 +381,7 @@ public class Main {
             OID oid = parseOIDName(requestedOid);
             for (int xp = 0; xp < args.length; xp++) {
               switch (args[xp]) {
-                case "--privKey":
+                case "--privkey":
                   {
                     if (args[xp + 1].startsWith("--")) {
                       usage();
@@ -502,7 +502,10 @@ public class Main {
             }
 
             inFileName = args[i + 1];
-            System.out.printf("we decrypt now: %nSOURCE  :%s%nTARGET  :%s %nwith KEY:%s %n", FileSystems.getDefault().getPath(inFileName).toAbsolutePath(), FileSystems.getDefault().getPath(outFileName).toAbsolutePath(), FileSystems.getDefault().getPath(privkeyFile).toAbsolutePath());
+            System.out.printf("we decrypt now: %nSOURCE  :%s%nTARGET  :%s %nwith KEY:%s %n",
+                    FileSystems.getDefault().getPath(inFileName).toAbsolutePath(),
+                    FileSystems.getDefault().getPath(outFileName).toAbsolutePath(),
+                    FileSystems.getDefault().getPath(privkeyFile).toAbsolutePath());
 
             NtruEncryptKey privKey = loadKey(privkeyFile);
             decryptFile(privKey, args[i + 1], outFileName);
