@@ -251,5 +251,11 @@ which is where we've collected a boatload of content on NTRU including NIST repo
 * [Die Entwicklung eines neuen Kryptosystems am Beispiel NTRU: Probleme und Chancen (Deutsch)](https://amzn.to/38tIZFE)
 
 
-[Table of Contents ntru-crypto](#table-of-contents-ntru-crypto)
 
+[Introduction_To_NTRU_Cryptography_for_Java.pdf](doc/Introduction_To_NTRU_Cryptography_for_Java.pdf)
+
+[Diplomarbeit_Die-Entwicklung-eines-neuen-Kryptosystems-am-Beispiel-NTRU_Probleme_und_Chancen.pdf](doc/Diplomarbeit_Die-Entwicklung-eines-neuen-Kryptosystems-am-Beispiel-NTRU_Probleme_und_Chancen.pdf)
+
+[ntru-orig.pdf](doc/ntru-orig.pdf)
+
+[Table of Contents ntru-crypto](#table-of-contents-ntru-crypto)
