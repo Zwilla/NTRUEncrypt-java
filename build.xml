@@ -29,8 +29,6 @@
     <delete file="${jarName}"/>
     <delete file="${jarTmpName}"/>
     <delete file="TestVectors.txt"/>
-    <delete file="privKey"/>
-    <delete file="pubKey"/>
     <delete> <fileset dir="." includes="**/TEST-*"/> </delete>
   </target>
 
