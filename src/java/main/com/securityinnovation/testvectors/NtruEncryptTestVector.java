@@ -105,16 +105,14 @@ public class NtruEncryptTestVector {
     a = _a;
   }
 
-
   public static NtruEncryptTestVector[] getTestVectors() {
     if (tests == null) initTests();
     return tests;
   }
 
-
   private static void initTests() {
     // Fill the OID map
-    oidBytesTable = new java.util.HashMap<OID, byte[]>();
+    oidBytesTable = new java.util.HashMap<>();
     oidBytesTable.put(OID.ees401ep1, new byte[] {0, 2, 4});
     oidBytesTable.put(OID.ees449ep1, new byte[] {0, 3, 3});
     oidBytesTable.put(OID.ees677ep1, new byte[] {0, 5, 3});
@@ -444,7 +442,6 @@ public class NtruEncryptTestVector {
             get_ees1499ep1_a());
   }
 
-
   // OID = ees401ep1  0.2.4
   static short[] get_ees401ep1_keygenSeed() {
     short[] keygenSeed = {
@@ -454,7 +451,6 @@ public class NtruEncryptTestVector {
     };
     return keygenSeed;
   }
-
 
   static short[] get_ees401ep1_h() {
     short[] h = {
@@ -507,7 +503,6 @@ public class NtruEncryptTestVector {
     return h;
   }
 
-
   static short[] get_ees401ep1_g() {
     short[] g = {
       0, -1, 1, 0, 1, 0, -1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, -1, 1, 1, 1, -1, -1, -1, 0, 0, 0, 0, 1,
@@ -528,7 +523,6 @@ public class NtruEncryptTestVector {
     };
     return g;
   }
-
 
   static short[] get_ees401ep1_f() {
     short[] f = {
@@ -581,7 +575,6 @@ public class NtruEncryptTestVector {
     return f;
   }
 
-
   static short[] get_ees401ep1_F() {
     short[] F = {
       1, 0, 1, -1, 0, 0, 0, 0, 1, 0, 0, 0, -1, -1, 1, 0, 0, 1, 0, -1, 1, 1, 1, 0, -1, -1, 1, 0, 0,
@@ -602,7 +595,6 @@ public class NtruEncryptTestVector {
     };
     return F;
   }
-
 
   static short[] get_ees401ep1_packedH() {
     short[] packedH = {
@@ -661,7 +653,6 @@ public class NtruEncryptTestVector {
     return packedH;
   }
 
-
   static short[] get_ees401ep1_packedF() {
     short[] packedF = {
       0x40, 0x1b, 0x99, 0xab, 0xaf, 0xa7, 0x1a, 0xc1, 0x3d, 0x63, 0x0f,
@@ -675,7 +666,6 @@ public class NtruEncryptTestVector {
     };
     return packedF;
   }
-
 
   static short[] get_ees401ep1_listedF() {
     short[] listedF = {
@@ -707,7 +697,6 @@ public class NtruEncryptTestVector {
     return listedF;
   }
 
-
   static short[] get_ees401ep1_encryptSeed() {
     short[] encryptSeed = {
       0x89, 0x10, 0x23, 0x62, 0x5a, 0x15, 0x41, 0x89, 0x90, 0x64, 0xae,
@@ -717,7 +706,6 @@ public class NtruEncryptTestVector {
     return encryptSeed;
   }
 
-
   static short[] get_ees401ep1_m() {
     short[] m = {
       0x41, 0x42, 0x43,
@@ -725,14 +713,12 @@ public class NtruEncryptTestVector {
     return m;
   }
 
-
   static short[] get_ees401ep1_b() {
     short[] b = {
       0x9f, 0xb4, 0x86, 0xa6, 0xa0, 0x55, 0x7b, 0x47, 0x31, 0x3a, 0x50, 0x89, 0xff, 0xd2,
     };
     return b;
   }
-
 
   static short[] get_ees401ep1_Mbin() { //  = b||l||m||p0 =
     short[] Mbin = {
@@ -746,7 +732,6 @@ public class NtruEncryptTestVector {
     };
     return Mbin;
   }
-
 
   static short[] get_ees401ep1_Mtrin() { //  = trinary b||l||m||p0 =
     short[] Mtrin = {
@@ -768,7 +753,6 @@ public class NtruEncryptTestVector {
     return Mtrin;
   }
 
-
   static short[] get_ees401ep1_sData() { // o||m||b||h =
     short[] sData = {
       0x00, 0x02, 0x04, 0x41, 0x42, 0x43, 0x9f, 0xb4, 0x86, 0xa6, 0xa0,
@@ -778,7 +762,6 @@ public class NtruEncryptTestVector {
     };
     return sData;
   }
-
 
   static short[] get_ees401ep1_r() {
     short[] r = {
@@ -799,7 +782,6 @@ public class NtruEncryptTestVector {
     };
     return r;
   }
-
 
   static short[] get_ees401ep1_R() { //  = r*h
     short[] R = {
@@ -852,7 +834,6 @@ public class NtruEncryptTestVector {
     return R;
   }
 
-
   static short[] get_ees401ep1_R4() { //  r*h mod 4
     short[] R4 = {
       0x93, 0x10, 0x5f, 0xd0, 0x22, 0x2d, 0x3c, 0x37, 0xed, 0xc2, 0xb7,
@@ -868,7 +849,6 @@ public class NtruEncryptTestVector {
     };
     return R4;
   }
-
 
   static short[] get_ees401ep1_mask() {
     short[] mask = {
@@ -891,7 +871,6 @@ public class NtruEncryptTestVector {
     return mask;
   }
 
-
   static short[] get_ees401ep1_mPrime() { // m'
     short[] mPrime = {
       -1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, -1, 0, 0, 1, 0, 1, 0, 0, 0, -1, 0, 0, 0, 0, 1, -1, 0,
@@ -912,7 +891,6 @@ public class NtruEncryptTestVector {
     };
     return mPrime;
   }
-
 
   static short[] get_ees401ep1_e() {
     short[] e = {
@@ -964,7 +942,6 @@ public class NtruEncryptTestVector {
     };
     return e;
   }
-
 
   static short[] get_ees401ep1_packedE() {
     short[] packedE = {
@@ -1023,7 +1000,6 @@ public class NtruEncryptTestVector {
     return packedE;
   }
 
-
   static short[] get_ees401ep1_A() { //  = f*e
     short[] A = {
       0x005, 0x79e, 0x7da, 0x7bf, 0x7fb, 0x7bb, 0x01b, 0x01e, 0x7eb,
@@ -1074,7 +1050,6 @@ public class NtruEncryptTestVector {
     };
     return A;
   }
-
 
   static short[] get_ees401ep1_a() { //  = A reduced to [-q/2..q/2) =
     short[] a = {
@@ -1127,7 +1102,6 @@ public class NtruEncryptTestVector {
     return a;
   }
 
-
   // OID = ees449ep1  0.3.3
   static short[] get_ees449ep1_keygenSeed() {
     short[] keygenSeed = {
@@ -1137,7 +1111,6 @@ public class NtruEncryptTestVector {
     };
     return keygenSeed;
   }
-
 
   static short[] get_ees449ep1_h() {
     short[] h = {
@@ -1195,7 +1168,6 @@ public class NtruEncryptTestVector {
     return h;
   }
 
-
   static short[] get_ees449ep1_g() {
     short[] g = {
       0, 1, -1, 1, 0, -1, 0, -1, 1, 1, 1, -1, -1, 1, 0, 0, 0, -1, 1, 1, 1, 1, 1, -1, 0, 1, -1, -1,
@@ -1217,7 +1189,6 @@ public class NtruEncryptTestVector {
     };
     return g;
   }
-
 
   static short[] get_ees449ep1_f() {
     short[] f = {
@@ -1275,7 +1246,6 @@ public class NtruEncryptTestVector {
     return f;
   }
 
-
   static short[] get_ees449ep1_F() {
     short[] F = {
       0, 0, -1, -1, -1, 1, 1, 1, -1, -1, 0, 0, 1, 1, 0, 0, -1, 1, 1, 0, 0, -1, 0, 1, 1, 1, 0, 0, 0,
@@ -1297,7 +1267,6 @@ public class NtruEncryptTestVector {
     };
     return F;
   }
-
 
   static short[] get_ees449ep1_packedH() {
     short[] packedH = {
@@ -1362,7 +1331,6 @@ public class NtruEncryptTestVector {
     return packedH;
   }
 
-
   static short[] get_ees449ep1_packedF() {
     short[] packedF = {
       0xea, 0xe5, 0x24, 0x2a, 0x72, 0x52, 0xe5, 0x1b, 0x37, 0xd2, 0x21,
@@ -1377,7 +1345,6 @@ public class NtruEncryptTestVector {
     };
     return packedF;
   }
-
 
   static short[] get_ees449ep1_listedF() {
     short[] listedF = {
@@ -1413,7 +1380,6 @@ public class NtruEncryptTestVector {
     return listedF;
   }
 
-
   static short[] get_ees449ep1_encryptSeed() {
     short[] encryptSeed = {
       0x6c, 0xe2, 0x1b, 0xb5, 0xf5, 0xc5, 0xdb, 0xd5, 0x59, 0x34, 0x46,
@@ -1423,14 +1389,12 @@ public class NtruEncryptTestVector {
     return encryptSeed;
   }
 
-
   static short[] get_ees449ep1_m() {
     short[] m = {
       0x41, 0x42, 0x43,
     };
     return m;
   }
-
 
   static short[] get_ees449ep1_b() {
     short[] b = {
@@ -1439,7 +1403,6 @@ public class NtruEncryptTestVector {
     };
     return b;
   }
-
 
   static short[] get_ees449ep1_Mbin() { //  = b||l||m||p0 =
     short[] Mbin = {
@@ -1454,7 +1417,6 @@ public class NtruEncryptTestVector {
     };
     return Mbin;
   }
-
 
   static short[] get_ees449ep1_Mtrin() { //  = trinary b||l||m||p0 =
     short[] Mtrin = {
@@ -1491,7 +1453,6 @@ public class NtruEncryptTestVector {
     return Mtrin;
   }
 
-
   static short[] get_ees449ep1_sData() { // o||m||b||h =
     short[] sData = {
       0x00, 0x03, 0x03, 0x41, 0x42, 0x43, 0x6a, 0xfc, 0x73, 0x63, 0x62,
@@ -1501,7 +1462,6 @@ public class NtruEncryptTestVector {
     };
     return sData;
   }
-
 
   static short[] get_ees449ep1_r() {
     short[] r = {
@@ -1524,7 +1484,6 @@ public class NtruEncryptTestVector {
     };
     return r;
   }
-
 
   static short[] get_ees449ep1_R() { //  = r*h
     short[] R = {
@@ -1582,7 +1541,6 @@ public class NtruEncryptTestVector {
     return R;
   }
 
-
   static short[] get_ees449ep1_R4() { //  r*h mod 4
     short[] R4 = {
       0xfe, 0x65, 0xcb, 0x8f, 0x75, 0x67, 0x4b, 0x0f, 0x14, 0x5f, 0x64,
@@ -1599,7 +1557,6 @@ public class NtruEncryptTestVector {
     };
     return R4;
   }
-
 
   static short[] get_ees449ep1_mask() {
     short[] mask = {
@@ -1624,7 +1581,6 @@ public class NtruEncryptTestVector {
     return mask;
   }
 
-
   static short[] get_ees449ep1_mPrime() { // m'
     short[] mPrime = {
       0, 0, -1, -1, 1, 1, -1, 0, 1, -1, 0, -1, 0, -1, 0, 0, -1, 1, 1, 0, 0, 0, -1, 0, 0, -1, 1, 1,
@@ -1647,7 +1603,6 @@ public class NtruEncryptTestVector {
     };
     return mPrime;
   }
-
 
   static short[] get_ees449ep1_e() {
     short[] e = {
@@ -1704,7 +1659,6 @@ public class NtruEncryptTestVector {
     };
     return e;
   }
-
 
   static short[] get_ees449ep1_packedE() {
     short[] packedE = {
@@ -1769,7 +1723,6 @@ public class NtruEncryptTestVector {
     return packedE;
   }
 
-
   static short[] get_ees449ep1_A() { //  = f*e
     short[] A = {
       0x7c7, 0x05d, 0x7ed, 0x01d, 0x055, 0x02b, 0x02c, 0x012, 0x022,
@@ -1825,7 +1778,6 @@ public class NtruEncryptTestVector {
     };
     return A;
   }
-
 
   static short[] get_ees449ep1_a() { //  = A reduced to [-q/2..q/2) =
     short[] a = {
@@ -1883,7 +1835,6 @@ public class NtruEncryptTestVector {
     return a;
   }
 
-
   // OID = ees677ep1  0.5.3
   static short[] get_ees677ep1_keygenSeed() {
     short[] keygenSeed = {
@@ -1893,7 +1844,6 @@ public class NtruEncryptTestVector {
     };
     return keygenSeed;
   }
-
 
   static short[] get_ees677ep1_h() {
     short[] h = {
@@ -1977,7 +1927,6 @@ public class NtruEncryptTestVector {
     return h;
   }
 
-
   static short[] get_ees677ep1_g() {
     short[] g = {
       1, -1, 1, -1, -1, -1, 1, -1, -1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, -1, -1, -1, 1, -1, 1, -1,
@@ -2008,7 +1957,6 @@ public class NtruEncryptTestVector {
     };
     return g;
   }
-
 
   static short[] get_ees677ep1_f() {
     short[] f = {
@@ -2092,7 +2040,6 @@ public class NtruEncryptTestVector {
     return f;
   }
 
-
   static short[] get_ees677ep1_F() {
     short[] F = {
       0, 0, 0, 0, 1, 1, 0, 0, -1, 1, 0, 0, -1, -1, -1, 1, 0, -1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
@@ -2122,7 +2069,6 @@ public class NtruEncryptTestVector {
     };
     return F;
   }
-
 
   static short[] get_ees677ep1_packedH() {
     short[] packedH = {
@@ -2215,7 +2161,6 @@ public class NtruEncryptTestVector {
     return packedH;
   }
 
-
   static short[] get_ees677ep1_packedF() {
     short[] packedF = {
       0x51, 0x88, 0xea, 0x2e, 0x01, 0xa5, 0x53, 0x2e, 0x45, 0xa5, 0x27,
@@ -2234,7 +2179,6 @@ public class NtruEncryptTestVector {
     };
     return packedF;
   }
-
 
   static short[] get_ees677ep1_listedF() {
     short[] listedF = {
@@ -2278,7 +2222,6 @@ public class NtruEncryptTestVector {
     return listedF;
   }
 
-
   static short[] get_ees677ep1_encryptSeed() {
     short[] encryptSeed = {
       0x5c, 0x9d, 0x37, 0x47, 0x21, 0x04, 0xbe, 0x69, 0x75, 0x1d, 0x54,
@@ -2288,14 +2231,12 @@ public class NtruEncryptTestVector {
     return encryptSeed;
   }
 
-
   static short[] get_ees677ep1_m() {
     short[] m = {
       0x41, 0x42, 0x43,
     };
     return m;
   }
-
 
   static short[] get_ees677ep1_b() {
     short[] b = {
@@ -2305,7 +2246,6 @@ public class NtruEncryptTestVector {
     };
     return b;
   }
-
 
   static short[] get_ees677ep1_Mbin() { //  = b||l||m||p0 =
     short[] Mbin = {
@@ -2324,7 +2264,6 @@ public class NtruEncryptTestVector {
     };
     return Mbin;
   }
-
 
   static short[] get_ees677ep1_Mtrin() { //  = trinary b||l||m||p0 =
     short[] Mtrin = {
@@ -2355,7 +2294,6 @@ public class NtruEncryptTestVector {
     return Mtrin;
   }
 
-
   static short[] get_ees677ep1_sData() { // o||m||b||h =
     short[] sData = {
       0x00, 0x05, 0x03, 0x41, 0x42, 0x43, 0x85, 0xac, 0x9e, 0x46, 0x32,
@@ -2366,7 +2304,6 @@ public class NtruEncryptTestVector {
     };
     return sData;
   }
-
 
   static short[] get_ees677ep1_r() {
     short[] r = {
@@ -2397,7 +2334,6 @@ public class NtruEncryptTestVector {
     };
     return r;
   }
-
 
   static short[] get_ees677ep1_R() { //  = r*h
     short[] R = {
@@ -2481,7 +2417,6 @@ public class NtruEncryptTestVector {
     return R;
   }
 
-
   static short[] get_ees677ep1_R4() { //  r*h mod 4
     short[] R4 = {
       0x22, 0x94, 0xff, 0x99, 0x99, 0xed, 0x6f, 0xeb, 0x41, 0xce, 0x88,
@@ -2503,7 +2438,6 @@ public class NtruEncryptTestVector {
     };
     return R4;
   }
-
 
   static short[] get_ees677ep1_mask() {
     short[] mask = {
@@ -2536,7 +2470,6 @@ public class NtruEncryptTestVector {
     return mask;
   }
 
-
   static short[] get_ees677ep1_mPrime() { // m'
     short[] mPrime = {
       -1, -1, -1, -1, 1, 1, 1, -1, -1, -1, 0, -1, -1, 0, -1, -1, 0, 1, 1, 0, 1, 1, 1, 0, -1, 0, -1,
@@ -2567,7 +2500,6 @@ public class NtruEncryptTestVector {
     };
     return mPrime;
   }
-
 
   static short[] get_ees677ep1_e() {
     short[] e = {
@@ -2650,7 +2582,6 @@ public class NtruEncryptTestVector {
     };
     return e;
   }
-
 
   static short[] get_ees677ep1_packedE() {
     short[] packedE = {
@@ -2743,7 +2674,6 @@ public class NtruEncryptTestVector {
     return packedE;
   }
 
-
   static short[] get_ees677ep1_A() { //  = f*e
     short[] A = {
       0x7ab, 0x7ed, 0x7ed, 0x79f, 0x03d, 0x022, 0x02b, 0x005, 0x03e,
@@ -2825,7 +2755,6 @@ public class NtruEncryptTestVector {
     };
     return A;
   }
-
 
   static short[] get_ees677ep1_a() { //  = A reduced to [-q/2..q/2) =
     short[] a = {
@@ -2909,7 +2838,6 @@ public class NtruEncryptTestVector {
     return a;
   }
 
-
   // OID = ees1087ep2  0.6.3
   static short[] get_ees1087ep2_keygenSeed() {
     short[] keygenSeed = {
@@ -2919,7 +2847,6 @@ public class NtruEncryptTestVector {
     };
     return keygenSeed;
   }
-
 
   static short[] get_ees1087ep2_h() {
     short[] h = {
@@ -3048,7 +2975,6 @@ public class NtruEncryptTestVector {
     return h;
   }
 
-
   static short[] get_ees1087ep2_g() {
     short[] g = {
       -1, -1, 1, 0, 1, 1, -1, 0, -1, -1, 0, 1, -1, 0, 1, 1, 0, 1, 1, -1, 0, 0, -1, 0, -1, 1, 1, -1,
@@ -3093,7 +3019,6 @@ public class NtruEncryptTestVector {
     };
     return g;
   }
-
 
   static short[] get_ees1087ep2_f() {
     short[] f = {
@@ -3222,7 +3147,6 @@ public class NtruEncryptTestVector {
     return f;
   }
 
-
   static short[] get_ees1087ep2_F() {
     short[] F = {
       -1, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, -1,
@@ -3264,7 +3188,6 @@ public class NtruEncryptTestVector {
     };
     return F;
   }
-
 
   static short[] get_ees1087ep2_packedH() {
     short[] packedH = {
@@ -3408,7 +3331,6 @@ public class NtruEncryptTestVector {
     return packedH;
   }
 
-
   static short[] get_ees1087ep2_packedF() {
     short[] packedF = {
       0x2f, 0x00, 0x24, 0x00, 0xa2, 0xa2, 0x00, 0xab, 0x00, 0xa2, 0x00,
@@ -3434,7 +3356,6 @@ public class NtruEncryptTestVector {
     };
     return packedF;
   }
-
 
   static short[] get_ees1087ep2_listedF() {
     short[] listedF = {
@@ -3472,7 +3393,6 @@ public class NtruEncryptTestVector {
     return listedF;
   }
 
-
   static short[] get_ees1087ep2_encryptSeed() {
     short[] encryptSeed = {
       0x1c, 0x6f, 0x67, 0xba, 0x8c, 0xae, 0xe6, 0x01, 0x07, 0x27, 0xe3,
@@ -3482,14 +3402,12 @@ public class NtruEncryptTestVector {
     return encryptSeed;
   }
 
-
   static short[] get_ees1087ep2_m() {
     short[] m = {
       0x41, 0x42, 0x43,
     };
     return m;
   }
-
 
   static short[] get_ees1087ep2_b() {
     short[] b = {
@@ -3499,7 +3417,6 @@ public class NtruEncryptTestVector {
     };
     return b;
   }
-
 
   static short[] get_ees1087ep2_Mbin() { //  = b||l||m||p0 =
     short[] Mbin = {
@@ -3525,7 +3442,6 @@ public class NtruEncryptTestVector {
     };
     return Mbin;
   }
-
 
   static short[] get_ees1087ep2_Mtrin() { //  = trinary b||l||m||p0 =
     short[] Mtrin = {
@@ -3569,7 +3485,6 @@ public class NtruEncryptTestVector {
     return Mtrin;
   }
 
-
   static short[] get_ees1087ep2_sData() { // o||m||b||h =
     short[] sData = {
       0x00, 0x06, 0x03, 0x41, 0x42, 0x43, 0xcb, 0x91, 0x69, 0xd5, 0x37,
@@ -3582,7 +3497,6 @@ public class NtruEncryptTestVector {
     };
     return sData;
   }
-
 
   static short[] get_ees1087ep2_r() {
     short[] r = {
@@ -3625,7 +3539,6 @@ public class NtruEncryptTestVector {
     };
     return r;
   }
-
 
   static short[] get_ees1087ep2_R() { //  = r*h
     short[] R = {
@@ -3754,7 +3667,6 @@ public class NtruEncryptTestVector {
     return R;
   }
 
-
   static short[] get_ees1087ep2_R4() { //  r*h mod 4
     short[] R4 = {
       0x10, 0x33, 0xd2, 0x5b, 0xfa, 0xe0, 0x08, 0xcb, 0xc5, 0xee, 0xa2,
@@ -3785,7 +3697,6 @@ public class NtruEncryptTestVector {
     };
     return R4;
   }
-
 
   static short[] get_ees1087ep2_mask() {
     short[] mask = {
@@ -3832,7 +3743,6 @@ public class NtruEncryptTestVector {
     return mask;
   }
 
-
   static short[] get_ees1087ep2_mPrime() { // m'
     short[] mPrime = {
       0, -1, -1, 0, 0, 1, -1, -1, -1, 1, 0, -1, 1, -1, 1, 1, -1, 0, 0, 0, 1, 0, 0, -1, -1, -1, 1, 1,
@@ -3877,7 +3787,6 @@ public class NtruEncryptTestVector {
     };
     return mPrime;
   }
-
 
   static short[] get_ees1087ep2_e() {
     short[] e = {
@@ -4005,7 +3914,6 @@ public class NtruEncryptTestVector {
     };
     return e;
   }
-
 
   static short[] get_ees1087ep2_packedE() {
     short[] packedE = {
@@ -4149,7 +4057,6 @@ public class NtruEncryptTestVector {
     return packedE;
   }
 
-
   static short[] get_ees1087ep2_A() { //  = f*e
     short[] A = {
       0x05a, 0x06e, 0x7ed, 0x7a6, 0x018, 0x052, 0x041, 0x02f, 0x7ed,
@@ -4276,7 +4183,6 @@ public class NtruEncryptTestVector {
     };
     return A;
   }
-
 
   static short[] get_ees1087ep2_a() { //  = A reduced to [-q/2..q/2) =
     short[] a = {
@@ -4405,7 +4311,6 @@ public class NtruEncryptTestVector {
     return a;
   }
 
-
   // OID = ees541ep1  0.2.5
   static short[] get_ees541ep1_keygenSeed() {
     short[] keygenSeed = {
@@ -4415,7 +4320,6 @@ public class NtruEncryptTestVector {
     };
     return keygenSeed;
   }
-
 
   static short[] get_ees541ep1_h() {
     short[] h = {
@@ -4484,7 +4388,6 @@ public class NtruEncryptTestVector {
     return h;
   }
 
-
   static short[] get_ees541ep1_g() {
     short[] g = {
       -1, -1, 1, -1, -1, 0, 0, 1, -1, -1, 0, -1, 1, 0, 1, -1, -1, -1, 1, -1, 1, 0, 1, 0, -1, 0, 1,
@@ -4510,7 +4413,6 @@ public class NtruEncryptTestVector {
     };
     return g;
   }
-
 
   static short[] get_ees541ep1_f() {
     short[] f = {
@@ -4579,7 +4481,6 @@ public class NtruEncryptTestVector {
     return f;
   }
 
-
   static short[] get_ees541ep1_F() {
     short[] F = {
       -1, 1, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0,
@@ -4603,7 +4504,6 @@ public class NtruEncryptTestVector {
     };
     return F;
   }
-
 
   static short[] get_ees541ep1_packedH() {
     short[] packedH = {
@@ -4679,7 +4579,6 @@ public class NtruEncryptTestVector {
     return packedH;
   }
 
-
   static short[] get_ees541ep1_packedF() {
     short[] packedF = {
       0x0e, 0x02, 0x00, 0x51, 0x00, 0x0c, 0x03, 0x51, 0x51, 0x00, 0x00,
@@ -4695,7 +4594,6 @@ public class NtruEncryptTestVector {
     };
     return packedF;
   }
-
 
   static short[] get_ees541ep1_listedF() {
     short[] listedF = {
@@ -4715,7 +4613,6 @@ public class NtruEncryptTestVector {
     return listedF;
   }
 
-
   static short[] get_ees541ep1_encryptSeed() {
     short[] encryptSeed = {
       0x98, 0x5c, 0xaa, 0x00, 0xe1, 0xab, 0x65, 0xd0, 0xfc, 0xfe, 0xa8,
@@ -4725,7 +4622,6 @@ public class NtruEncryptTestVector {
     return encryptSeed;
   }
 
-
   static short[] get_ees541ep1_m() {
     short[] m = {
       0x41, 0x42, 0x43,
@@ -4733,14 +4629,12 @@ public class NtruEncryptTestVector {
     return m;
   }
 
-
   static short[] get_ees541ep1_b() {
     short[] b = {
       0x69, 0xb6, 0x28, 0x37, 0x6d, 0x14, 0x10, 0xd0, 0xab, 0xf9, 0x34, 0xbb, 0xa7, 0x31,
     };
     return b;
   }
-
 
   static short[] get_ees541ep1_Mbin() { //  = b||l||m||p0 =
     short[] Mbin = {
@@ -4757,7 +4651,6 @@ public class NtruEncryptTestVector {
     };
     return Mbin;
   }
-
 
   static short[] get_ees541ep1_Mtrin() { //  = trinary b||l||m||p0 =
     short[] Mtrin = {
@@ -4783,7 +4676,6 @@ public class NtruEncryptTestVector {
     return Mtrin;
   }
 
-
   static short[] get_ees541ep1_sData() { // o||m||b||h =
     short[] sData = {
       0x00, 0x02, 0x05, 0x41, 0x42, 0x43, 0x69, 0xb6, 0x28, 0x37, 0x6d,
@@ -4793,7 +4685,6 @@ public class NtruEncryptTestVector {
     };
     return sData;
   }
-
 
   static short[] get_ees541ep1_r() {
     short[] r = {
@@ -4818,7 +4709,6 @@ public class NtruEncryptTestVector {
     };
     return r;
   }
-
 
   static short[] get_ees541ep1_R() { //  = r*h
     short[] R = {
@@ -4887,7 +4777,6 @@ public class NtruEncryptTestVector {
     return R;
   }
 
-
   static short[] get_ees541ep1_R4() { //  r*h mod 4
     short[] R4 = {
       0xc6, 0x85, 0x18, 0x4c, 0x03, 0x33, 0x68, 0x23, 0x37, 0x81, 0xf8,
@@ -4906,7 +4795,6 @@ public class NtruEncryptTestVector {
     };
     return R4;
   }
-
 
   static short[] get_ees541ep1_mask() {
     short[] mask = {
@@ -4934,7 +4822,6 @@ public class NtruEncryptTestVector {
     return mask;
   }
 
-
   static short[] get_ees541ep1_mPrime() { // m'
     short[] mPrime = {
       1, -1, 1, 0, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 0, 1, 1, 1, 1, 0, 1, -1, -1, 1, 0, -1, -1, -1,
@@ -4960,7 +4847,6 @@ public class NtruEncryptTestVector {
     };
     return mPrime;
   }
-
 
   static short[] get_ees541ep1_e() {
     short[] e = {
@@ -5028,7 +4914,6 @@ public class NtruEncryptTestVector {
     };
     return e;
   }
-
 
   static short[] get_ees541ep1_packedE() {
     short[] packedE = {
@@ -5104,7 +4989,6 @@ public class NtruEncryptTestVector {
     return packedE;
   }
 
-
   static short[] get_ees541ep1_A() { //  = f*e
     short[] A = {
       0x7c2, 0x056, 0x7fb, 0x018, 0x012, 0x00b, 0x01d, 0x042, 0x7bf,
@@ -5171,7 +5055,6 @@ public class NtruEncryptTestVector {
     };
     return A;
   }
-
 
   static short[] get_ees541ep1_a() { //  = A reduced to [-q/2..q/2) =
     short[] a = {
@@ -5240,7 +5123,6 @@ public class NtruEncryptTestVector {
     return a;
   }
 
-
   // OID = ees613ep1  0.3.4
   static short[] get_ees613ep1_keygenSeed() {
     short[] keygenSeed = {
@@ -5250,7 +5132,6 @@ public class NtruEncryptTestVector {
     };
     return keygenSeed;
   }
-
 
   static short[] get_ees613ep1_h() {
     short[] h = {
@@ -5327,7 +5208,6 @@ public class NtruEncryptTestVector {
     return h;
   }
 
-
   static short[] get_ees613ep1_g() {
     short[] g = {
       0, -1, -1, 1, -1, 1, 1, 0, 0, 1, 0, 1, 1, 0, -1, -1, 1, 1, 0, 1, -1, 0, 0, 0, -1, 0, 1, 1, -1,
@@ -5355,7 +5235,6 @@ public class NtruEncryptTestVector {
     };
     return g;
   }
-
 
   static short[] get_ees613ep1_f() {
     short[] f = {
@@ -5432,7 +5311,6 @@ public class NtruEncryptTestVector {
     return f;
   }
 
-
   static short[] get_ees613ep1_F() {
     short[] F = {
       0, 0, 0, 0, 1, 1, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0,
@@ -5459,7 +5337,6 @@ public class NtruEncryptTestVector {
     };
     return F;
   }
-
 
   static short[] get_ees613ep1_packedH() {
     short[] packedH = {
@@ -5544,7 +5421,6 @@ public class NtruEncryptTestVector {
     return packedH;
   }
 
-
   static short[] get_ees613ep1_packedF() {
     short[] packedF = {
       0x51, 0x13, 0x01, 0x00, 0x1b, 0xc6, 0x03, 0xc0, 0x01, 0x36, 0x00,
@@ -5562,7 +5438,6 @@ public class NtruEncryptTestVector {
     };
     return packedF;
   }
-
 
   static short[] get_ees613ep1_listedF() {
     short[] listedF = {
@@ -5583,7 +5458,6 @@ public class NtruEncryptTestVector {
     return listedF;
   }
 
-
   static short[] get_ees613ep1_encryptSeed() {
     short[] encryptSeed = {
       0xa4, 0xd6, 0x02, 0xe3, 0x1d, 0x8a, 0x6a, 0xdf, 0x1f, 0xdb, 0xc9,
@@ -5593,14 +5467,12 @@ public class NtruEncryptTestVector {
     return encryptSeed;
   }
 
-
   static short[] get_ees613ep1_m() {
     short[] m = {
       0x41, 0x42, 0x43,
     };
     return m;
   }
-
 
   static short[] get_ees613ep1_b() {
     short[] b = {
@@ -5609,7 +5481,6 @@ public class NtruEncryptTestVector {
     };
     return b;
   }
-
 
   static short[] get_ees613ep1_Mbin() { //  = b||l||m||p0 =
     short[] Mbin = {
@@ -5627,7 +5498,6 @@ public class NtruEncryptTestVector {
     };
     return Mbin;
   }
-
 
   static short[] get_ees613ep1_Mtrin() { //  = trinary b||l||m||p0 =
     short[] Mtrin = {
@@ -5655,7 +5525,6 @@ public class NtruEncryptTestVector {
     return Mtrin;
   }
 
-
   static short[] get_ees613ep1_sData() { // o||m||b||h =
     short[] sData = {
       0x00, 0x03, 0x04, 0x41, 0x42, 0x43, 0xd8, 0x3b, 0x22, 0xa3, 0x37,
@@ -5665,7 +5534,6 @@ public class NtruEncryptTestVector {
     };
     return sData;
   }
-
 
   static short[] get_ees613ep1_r() {
     short[] r = {
@@ -5693,7 +5561,6 @@ public class NtruEncryptTestVector {
     };
     return r;
   }
-
 
   static short[] get_ees613ep1_R() { //  = r*h
     short[] R = {
@@ -5770,7 +5637,6 @@ public class NtruEncryptTestVector {
     return R;
   }
 
-
   static short[] get_ees613ep1_R4() { //  r*h mod 4
     short[] R4 = {
       0xc4, 0xd1, 0x6c, 0x78, 0x58, 0x02, 0xb2, 0xf2, 0x98, 0x9e, 0x75,
@@ -5790,7 +5656,6 @@ public class NtruEncryptTestVector {
     };
     return R4;
   }
-
 
   static short[] get_ees613ep1_mask() {
     short[] mask = {
@@ -5820,7 +5685,6 @@ public class NtruEncryptTestVector {
     return mask;
   }
 
-
   static short[] get_ees613ep1_mPrime() { // m'
     short[] mPrime = {
       0, 0, 0, 0, -1, 1, 1, -1, 1, 0, 1, 1, 1, 1, 1, 1, -1, -1, -1, 0, 0, 0, -1, 1, 0, 1, -1, 1, 1,
@@ -5848,7 +5712,6 @@ public class NtruEncryptTestVector {
     };
     return mPrime;
   }
-
 
   static short[] get_ees613ep1_e() {
     short[] e = {
@@ -5924,7 +5787,6 @@ public class NtruEncryptTestVector {
     };
     return e;
   }
-
 
   static short[] get_ees613ep1_packedE() {
     short[] packedE = {
@@ -6009,7 +5871,6 @@ public class NtruEncryptTestVector {
     return packedE;
   }
 
-
   static short[] get_ees613ep1_A() { //  = f*e
     short[] A = {
       0x7c7, 0x7e2, 0x7df, 0x04b, 0x7f9, 0x022, 0x00a, 0x00b, 0x7e3,
@@ -6084,7 +5945,6 @@ public class NtruEncryptTestVector {
     };
     return A;
   }
-
 
   static short[] get_ees613ep1_a() { //  = A reduced to [-q/2..q/2) =
     short[] a = {
@@ -6161,7 +6021,6 @@ public class NtruEncryptTestVector {
     return a;
   }
 
-
   // OID = ees887ep1  0.5.4
   static short[] get_ees887ep1_keygenSeed() {
     short[] keygenSeed = {
@@ -6171,7 +6030,6 @@ public class NtruEncryptTestVector {
     };
     return keygenSeed;
   }
-
 
   static short[] get_ees887ep1_h() {
     short[] h = {
@@ -6278,7 +6136,6 @@ public class NtruEncryptTestVector {
     return h;
   }
 
-
   static short[] get_ees887ep1_g() {
     short[] g = {
       0, 0, 1, 0, 0, 0, 1, 1, 0, -1, -1, -1, 0, 0, 0, -1, 1, 1, 1, -1, 1, 0, -1, -1, -1, 0, 0, -1,
@@ -6316,7 +6173,6 @@ public class NtruEncryptTestVector {
     };
     return g;
   }
-
 
   static short[] get_ees887ep1_f() {
     short[] f = {
@@ -6423,7 +6279,6 @@ public class NtruEncryptTestVector {
     return f;
   }
 
-
   static short[] get_ees887ep1_F() {
     short[] F = {
       1, 0, 0, 0, 1, 1, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
@@ -6459,7 +6314,6 @@ public class NtruEncryptTestVector {
     };
     return F;
   }
-
 
   static short[] get_ees887ep1_packedH() {
     short[] packedH = {
@@ -6578,7 +6432,6 @@ public class NtruEncryptTestVector {
     return packedH;
   }
 
-
   static short[] get_ees887ep1_packedF() {
     short[] packedF = {
       0x52, 0xa6, 0x00, 0x09, 0x51, 0x00, 0x00, 0x00, 0x00, 0x06, 0x51,
@@ -6601,7 +6454,6 @@ public class NtruEncryptTestVector {
     };
     return packedF;
   }
-
 
   static short[] get_ees887ep1_listedF() {
     short[] listedF = {
@@ -6628,7 +6480,6 @@ public class NtruEncryptTestVector {
     return listedF;
   }
 
-
   static short[] get_ees887ep1_encryptSeed() {
     short[] encryptSeed = {
       0x68, 0xc1, 0xec, 0xfb, 0x87, 0x4a, 0x87, 0x03, 0xcc, 0xe8, 0xaa,
@@ -6638,14 +6489,12 @@ public class NtruEncryptTestVector {
     return encryptSeed;
   }
 
-
   static short[] get_ees887ep1_m() {
     short[] m = {
       0x41, 0x42, 0x43,
     };
     return m;
   }
-
 
   static short[] get_ees887ep1_b() {
     short[] b = {
@@ -6655,7 +6504,6 @@ public class NtruEncryptTestVector {
     };
     return b;
   }
-
 
   static short[] get_ees887ep1_Mbin() { //  = b||l||m||p0 =
     short[] Mbin = {
@@ -6678,7 +6526,6 @@ public class NtruEncryptTestVector {
     };
     return Mbin;
   }
-
 
   static short[] get_ees887ep1_Mtrin() { //  = trinary b||l||m||p0 =
     short[] Mtrin = {
@@ -6715,7 +6562,6 @@ public class NtruEncryptTestVector {
     return Mtrin;
   }
 
-
   static short[] get_ees887ep1_sData() { // o||m||b||h =
     short[] sData = {
       0x00, 0x05, 0x04, 0x41, 0x42, 0x43, 0x67, 0x1a, 0x71, 0xbb, 0x0e,
@@ -6726,7 +6572,6 @@ public class NtruEncryptTestVector {
     };
     return sData;
   }
-
 
   static short[] get_ees887ep1_r() {
     short[] r = {
@@ -6763,7 +6608,6 @@ public class NtruEncryptTestVector {
     };
     return r;
   }
-
 
   static short[] get_ees887ep1_R() { //  = r*h
     short[] R = {
@@ -6870,7 +6714,6 @@ public class NtruEncryptTestVector {
     return R;
   }
 
-
   static short[] get_ees887ep1_R4() { //  r*h mod 4
     short[] R4 = {
       0xb7, 0x41, 0x8e, 0x94, 0x84, 0xc4, 0x52, 0x4a, 0x16, 0x6d, 0x9f,
@@ -6897,7 +6740,6 @@ public class NtruEncryptTestVector {
     };
     return R4;
   }
-
 
   static short[] get_ees887ep1_mask() {
     short[] mask = {
@@ -6937,7 +6779,6 @@ public class NtruEncryptTestVector {
     return mask;
   }
 
-
   static short[] get_ees887ep1_mPrime() { // m'
     short[] mPrime = {
       1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 0, 0, -1, 1, -1, 0, -1, 0, 0, -1, 1, -1, 0, 0, -1, 1, 0,
@@ -6975,7 +6816,6 @@ public class NtruEncryptTestVector {
     };
     return mPrime;
   }
-
 
   static short[] get_ees887ep1_e() {
     short[] e = {
@@ -7081,7 +6921,6 @@ public class NtruEncryptTestVector {
     };
     return e;
   }
-
 
   static short[] get_ees887ep1_packedE() {
     short[] packedE = {
@@ -7200,7 +7039,6 @@ public class NtruEncryptTestVector {
     return packedE;
   }
 
-
   static short[] get_ees887ep1_A() { //  = f*e
     short[] A = {
       0x7ef, 0x7ce, 0x7fb, 0x00b, 0x7b6, 0x7db, 0x7d7, 0x010, 0x7f2,
@@ -7305,7 +7143,6 @@ public class NtruEncryptTestVector {
     };
     return A;
   }
-
 
   static short[] get_ees887ep1_a() { //  = A reduced to [-q/2..q/2) =
     short[] a = {
@@ -7412,7 +7249,6 @@ public class NtruEncryptTestVector {
     return a;
   }
 
-
   // OID = ees1171ep1  0.6.4
   static short[] get_ees1171ep1_keygenSeed() {
     short[] keygenSeed = {
@@ -7422,7 +7258,6 @@ public class NtruEncryptTestVector {
     };
     return keygenSeed;
   }
-
 
   static short[] get_ees1171ep1_h() {
     short[] h = {
@@ -7561,7 +7396,6 @@ public class NtruEncryptTestVector {
     return h;
   }
 
-
   static short[] get_ees1171ep1_g() {
     short[] g = {
       0, -1, -1, -1, 0, 1, 0, 1, 0, 0, 0, 0, 1, -1, 0, -1, -1, 1, 0, 0, 0, -1, 1, 1, 0, 1, 1, -1,
@@ -7609,7 +7443,6 @@ public class NtruEncryptTestVector {
     };
     return g;
   }
-
 
   static short[] get_ees1171ep1_f() {
     short[] f = {
@@ -7748,7 +7581,6 @@ public class NtruEncryptTestVector {
     return f;
   }
 
-
   static short[] get_ees1171ep1_F() {
     short[] F = {
       0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, -1,
@@ -7793,7 +7625,6 @@ public class NtruEncryptTestVector {
     };
     return F;
   }
-
 
   static short[] get_ees1171ep1_packedH() {
     short[] packedH = {
@@ -7948,7 +7779,6 @@ public class NtruEncryptTestVector {
     return packedH;
   }
 
-
   static short[] get_ees1171ep1_packedF() {
     short[] packedF = {
       0x39, 0x1b, 0x12, 0x00, 0x09, 0xa2, 0x00, 0x24, 0x39, 0xe1, 0x00,
@@ -7976,7 +7806,6 @@ public class NtruEncryptTestVector {
     };
     return packedF;
   }
-
 
   static short[] get_ees1171ep1_listedF() {
     short[] listedF = {
@@ -8011,7 +7840,6 @@ public class NtruEncryptTestVector {
     return listedF;
   }
 
-
   static short[] get_ees1171ep1_encryptSeed() {
     short[] encryptSeed = {
       0x74, 0x38, 0x2a, 0x85, 0x7f, 0x0c, 0xa1, 0xa9, 0x65, 0xf3, 0xa9,
@@ -8021,14 +7849,12 @@ public class NtruEncryptTestVector {
     return encryptSeed;
   }
 
-
   static short[] get_ees1171ep1_m() {
     short[] m = {
       0x41, 0x42, 0x43,
     };
     return m;
   }
-
 
   static short[] get_ees1171ep1_b() {
     short[] b = {
@@ -8038,7 +7864,6 @@ public class NtruEncryptTestVector {
     };
     return b;
   }
-
 
   static short[] get_ees1171ep1_Mbin() { //  = b||l||m||p0 =
     short[] Mbin = {
@@ -8065,7 +7890,6 @@ public class NtruEncryptTestVector {
     };
     return Mbin;
   }
-
 
   static short[] get_ees1171ep1_Mtrin() { //  = trinary b||l||m||p0 =
     short[] Mtrin = {
@@ -8112,7 +7936,6 @@ public class NtruEncryptTestVector {
     return Mtrin;
   }
 
-
   static short[] get_ees1171ep1_sData() { // o||m||b||h =
     short[] sData = {
       0x00, 0x06, 0x04, 0x41, 0x42, 0x43, 0xd3, 0x55, 0x23, 0x6d, 0xfe,
@@ -8125,7 +7948,6 @@ public class NtruEncryptTestVector {
     };
     return sData;
   }
-
 
   static short[] get_ees1171ep1_r() {
     short[] r = {
@@ -8171,7 +7993,6 @@ public class NtruEncryptTestVector {
     };
     return r;
   }
-
 
   static short[] get_ees1171ep1_R() { //  = r*h
     short[] R = {
@@ -8310,7 +8131,6 @@ public class NtruEncryptTestVector {
     return R;
   }
 
-
   static short[] get_ees1171ep1_R4() { //  r*h mod 4
     short[] R4 = {
       0xd4, 0xd5, 0xc5, 0xe9, 0x8c, 0xf6, 0xea, 0xc4, 0x84, 0xb7, 0x59,
@@ -8343,7 +8163,6 @@ public class NtruEncryptTestVector {
     };
     return R4;
   }
-
 
   static short[] get_ees1171ep1_mask() {
     short[] mask = {
@@ -8393,7 +8212,6 @@ public class NtruEncryptTestVector {
     return mask;
   }
 
-
   static short[] get_ees1171ep1_mPrime() { // m'
     short[] mPrime = {
       1, -1, 1, -1, -1, 1, 0, 1, 0, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 0, -1, 1, 0, 1, 0, 1,
@@ -8441,7 +8259,6 @@ public class NtruEncryptTestVector {
     };
     return mPrime;
   }
-
 
   static short[] get_ees1171ep1_e() {
     short[] e = {
@@ -8579,7 +8396,6 @@ public class NtruEncryptTestVector {
     };
     return e;
   }
-
 
   static short[] get_ees1171ep1_packedE() {
     short[] packedE = {
@@ -8734,7 +8550,6 @@ public class NtruEncryptTestVector {
     return packedE;
   }
 
-
   static short[] get_ees1171ep1_A() { //  = f*e
     short[] A = {
       0x004, 0x7ff, 0x013, 0x00e, 0x026, 0x7dd, 0x7a6, 0x037, 0x7dc,
@@ -8871,7 +8686,6 @@ public class NtruEncryptTestVector {
     };
     return A;
   }
-
 
   static short[] get_ees1171ep1_a() { //  = A reduced to [-q/2..q/2) =
     short[] a = {
@@ -9010,7 +8824,6 @@ public class NtruEncryptTestVector {
     return a;
   }
 
-
   // OID = ees659ep1  0.2.6
   static short[] get_ees659ep1_keygenSeed() {
     short[] keygenSeed = {
@@ -9020,7 +8833,6 @@ public class NtruEncryptTestVector {
     };
     return keygenSeed;
   }
-
 
   static short[] get_ees659ep1_h() {
     short[] h = {
@@ -9102,7 +8914,6 @@ public class NtruEncryptTestVector {
     return h;
   }
 
-
   static short[] get_ees659ep1_g() {
     short[] g = {
       -1, 1, -1, -1, -1, -1, -1, 1, 0, 0, 0, 0, 1, 1, 0, 1, -1, 1, 0, -1, -1, -1, -1, 0, -1, -1, -1,
@@ -9132,7 +8943,6 @@ public class NtruEncryptTestVector {
     };
     return g;
   }
-
 
   static short[] get_ees659ep1_f() {
     short[] f = {
@@ -9214,7 +9024,6 @@ public class NtruEncryptTestVector {
     return f;
   }
 
-
   static short[] get_ees659ep1_F() {
     short[] F = {
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, -1, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -9242,7 +9051,6 @@ public class NtruEncryptTestVector {
     };
     return F;
   }
-
 
   static short[] get_ees659ep1_packedH() {
     short[] packedH = {
@@ -9333,7 +9141,6 @@ public class NtruEncryptTestVector {
     return packedH;
   }
 
-
   static short[] get_ees659ep1_packedF() {
     short[] packedF = {
       0x00, 0x00, 0xb4, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02, 0x51, 0xb4,
@@ -9352,7 +9159,6 @@ public class NtruEncryptTestVector {
     return packedF;
   }
 
-
   static short[] get_ees659ep1_listedF() {
     short[] listedF = {
       0x0c, 0x44, 0x71, 0x2c, 0x50, 0x14, 0x85, 0x31, 0x50, 0x6e, 0x1f,
@@ -9368,7 +9174,6 @@ public class NtruEncryptTestVector {
     return listedF;
   }
 
-
   static short[] get_ees659ep1_encryptSeed() {
     short[] encryptSeed = {
       0xe5, 0x9c, 0xf6, 0x65, 0x99, 0x1f, 0xbc, 0x3a, 0xc7, 0x2a, 0x33,
@@ -9378,7 +9183,6 @@ public class NtruEncryptTestVector {
     return encryptSeed;
   }
 
-
   static short[] get_ees659ep1_m() {
     short[] m = {
       0x41, 0x42, 0x43,
@@ -9386,14 +9190,12 @@ public class NtruEncryptTestVector {
     return m;
   }
 
-
   static short[] get_ees659ep1_b() {
     short[] b = {
       0x77, 0x83, 0xa1, 0x83, 0xfb, 0xdb, 0xe8, 0xf2, 0xab, 0x87, 0x24, 0x34, 0x20, 0x9e,
     };
     return b;
   }
-
 
   static short[] get_ees659ep1_Mbin() { //  = b||l||m||p0 =
     short[] Mbin = {
@@ -9412,7 +9214,6 @@ public class NtruEncryptTestVector {
     };
     return Mbin;
   }
-
 
   static short[] get_ees659ep1_Mtrin() { //  = trinary b||l||m||p0 =
     short[] Mtrin = {
@@ -9442,7 +9243,6 @@ public class NtruEncryptTestVector {
     return Mtrin;
   }
 
-
   static short[] get_ees659ep1_sData() { // o||m||b||h =
     short[] sData = {
       0x00, 0x02, 0x06, 0x41, 0x42, 0x43, 0x77, 0x83, 0xa1, 0x83, 0xfb,
@@ -9452,7 +9252,6 @@ public class NtruEncryptTestVector {
     };
     return sData;
   }
-
 
   static short[] get_ees659ep1_r() {
     short[] r = {
@@ -9481,7 +9280,6 @@ public class NtruEncryptTestVector {
     };
     return r;
   }
-
 
   static short[] get_ees659ep1_R() { //  = r*h
     short[] R = {
@@ -9563,7 +9361,6 @@ public class NtruEncryptTestVector {
     return R;
   }
 
-
   static short[] get_ees659ep1_R4() { //  r*h mod 4
     short[] R4 = {
       0x83, 0x89, 0xbf, 0x62, 0xf6, 0x6d, 0xe6, 0x47, 0xc2, 0x88, 0x5b,
@@ -9584,7 +9381,6 @@ public class NtruEncryptTestVector {
     };
     return R4;
   }
-
 
   static short[] get_ees659ep1_mask() {
     short[] mask = {
@@ -9616,7 +9412,6 @@ public class NtruEncryptTestVector {
     return mask;
   }
 
-
   static short[] get_ees659ep1_mPrime() { // m'
     short[] mPrime = {
       1, 1, 1, 1, 1, 1, -1, 0, 1, 0, -1, -1, 1, 0, 1, -1, 1, -1, 0, 1, -1, 1, 0, 0, 1, 1, 1, -1, 1,
@@ -9646,7 +9441,6 @@ public class NtruEncryptTestVector {
     };
     return mPrime;
   }
-
 
   static short[] get_ees659ep1_e() {
     short[] e = {
@@ -9727,7 +9521,6 @@ public class NtruEncryptTestVector {
     };
     return e;
   }
-
 
   static short[] get_ees659ep1_packedE() {
     short[] packedE = {
@@ -9818,7 +9611,6 @@ public class NtruEncryptTestVector {
     return packedE;
   }
 
-
   static short[] get_ees659ep1_A() { //  = f*e
     short[] A = {
       0x7c5, 0x028, 0x00d, 0x7fe, 0x01c, 0x046, 0x00e, 0x000, 0x7f8,
@@ -9898,7 +9690,6 @@ public class NtruEncryptTestVector {
     };
     return A;
   }
-
 
   static short[] get_ees659ep1_a() { //  = A reduced to [-q/2..q/2) =
     short[] a = {
@@ -9980,7 +9771,6 @@ public class NtruEncryptTestVector {
     return a;
   }
 
-
   // OID = ees761ep1  0.3.5
   static short[] get_ees761ep1_keygenSeed() {
     short[] keygenSeed = {
@@ -9990,7 +9780,6 @@ public class NtruEncryptTestVector {
     };
     return keygenSeed;
   }
-
 
   static short[] get_ees761ep1_h() {
     short[] h = {
@@ -10083,7 +9872,6 @@ public class NtruEncryptTestVector {
     return h;
   }
 
-
   static short[] get_ees761ep1_g() {
     short[] g = {
       1, -1, 0, 0, -1, 1, 0, -1, 1, 1, -1, 0, 0, 1, -1, 0, -1, -1, -1, 0, -1, 0, 1, -1, 1, 0, 0, 1,
@@ -10116,7 +9904,6 @@ public class NtruEncryptTestVector {
     };
     return g;
   }
-
 
   static short[] get_ees761ep1_f() {
     short[] f = {
@@ -10209,7 +9996,6 @@ public class NtruEncryptTestVector {
     return f;
   }
 
-
   static short[] get_ees761ep1_F() {
     short[] F = {
       0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -10240,7 +10026,6 @@ public class NtruEncryptTestVector {
     };
     return F;
   }
-
 
   static short[] get_ees761ep1_packedH() {
     short[] packedH = {
@@ -10344,7 +10129,6 @@ public class NtruEncryptTestVector {
     return packedH;
   }
 
-
   static short[] get_ees761ep1_packedF() {
     short[] packedF = {
       0x00, 0x1b, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, 0x08, 0x00,
@@ -10365,7 +10149,6 @@ public class NtruEncryptTestVector {
     return packedF;
   }
 
-
   static short[] get_ees761ep1_listedF() {
     short[] listedF = {
       0x02, 0x06, 0x21, 0xb4, 0x8b, 0x23, 0xca, 0xd2, 0xdc, 0xbf, 0x35,
@@ -10382,7 +10165,6 @@ public class NtruEncryptTestVector {
     return listedF;
   }
 
-
   static short[] get_ees761ep1_encryptSeed() {
     short[] encryptSeed = {
       0x9e, 0xb4, 0x57, 0xb6, 0x68, 0x24, 0xb6, 0xbd, 0xc1, 0x7f, 0x8c,
@@ -10392,14 +10174,12 @@ public class NtruEncryptTestVector {
     return encryptSeed;
   }
 
-
   static short[] get_ees761ep1_m() {
     short[] m = {
       0x41, 0x42, 0x43,
     };
     return m;
   }
-
 
   static short[] get_ees761ep1_b() {
     short[] b = {
@@ -10408,7 +10188,6 @@ public class NtruEncryptTestVector {
     };
     return b;
   }
-
 
   static short[] get_ees761ep1_Mbin() { //  = b||l||m||p0 =
     short[] Mbin = {
@@ -10428,7 +10207,6 @@ public class NtruEncryptTestVector {
     };
     return Mbin;
   }
-
 
   static short[] get_ees761ep1_Mtrin() { //  = trinary b||l||m||p0 =
     short[] Mtrin = {
@@ -10484,7 +10262,6 @@ public class NtruEncryptTestVector {
     return Mtrin;
   }
 
-
   static short[] get_ees761ep1_sData() { // o||m||b||h =
     short[] sData = {
       0x00, 0x03, 0x05, 0x41, 0x42, 0x43, 0xbf, 0xa2, 0xc6, 0xb1, 0x4c,
@@ -10494,7 +10271,6 @@ public class NtruEncryptTestVector {
     };
     return sData;
   }
-
 
   static short[] get_ees761ep1_r() {
     short[] r = {
@@ -10526,7 +10302,6 @@ public class NtruEncryptTestVector {
     };
     return r;
   }
-
 
   static short[] get_ees761ep1_R() { //  = r*h
     short[] R = {
@@ -10619,7 +10394,6 @@ public class NtruEncryptTestVector {
     return R;
   }
 
-
   static short[] get_ees761ep1_R4() { //  r*h mod 4
     short[] R4 = {
       0x13, 0xca, 0x8d, 0x0a, 0xc3, 0xc7, 0x57, 0xf8, 0xb1, 0xf8, 0x5b,
@@ -10643,7 +10417,6 @@ public class NtruEncryptTestVector {
     };
     return R4;
   }
-
 
   static short[] get_ees761ep1_mask() {
     short[] mask = {
@@ -10679,7 +10452,6 @@ public class NtruEncryptTestVector {
     return mask;
   }
 
-
   static short[] get_ees761ep1_mPrime() { // m'
     short[] mPrime = {
       0, 1, 0, -1, 1, 0, -1, 0, 1, 1, -1, 1, 1, -1, -1, 1, 1, 0, 0, 1, -1, -1, -1, -1, 1, 1, -1, 1,
@@ -10713,7 +10485,6 @@ public class NtruEncryptTestVector {
     };
     return mPrime;
   }
-
 
   static short[] get_ees761ep1_e() {
     short[] e = {
@@ -10805,7 +10576,6 @@ public class NtruEncryptTestVector {
     };
     return e;
   }
-
 
   static short[] get_ees761ep1_packedE() {
     short[] packedE = {
@@ -10909,7 +10679,6 @@ public class NtruEncryptTestVector {
     return packedE;
   }
 
-
   static short[] get_ees761ep1_A() { //  = f*e
     short[] A = {
       0x015, 0x7f5, 0x018, 0x7e1, 0x7ce, 0x01b, 0x008, 0x7e8, 0x016,
@@ -11000,7 +10769,6 @@ public class NtruEncryptTestVector {
     };
     return A;
   }
-
 
   static short[] get_ees761ep1_a() { //  = A reduced to [-q/2..q/2) =
     short[] a = {
@@ -11093,7 +10861,6 @@ public class NtruEncryptTestVector {
     return a;
   }
 
-
   // OID = ees1087ep1  0.5.5
   static short[] get_ees1087ep1_keygenSeed() {
     short[] keygenSeed = {
@@ -11103,7 +10870,6 @@ public class NtruEncryptTestVector {
     };
     return keygenSeed;
   }
-
 
   static short[] get_ees1087ep1_h() {
     short[] h = {
@@ -11232,7 +10998,6 @@ public class NtruEncryptTestVector {
     return h;
   }
 
-
   static short[] get_ees1087ep1_g() {
     short[] g = {
       0, 1, 0, 0, -1, 0, 1, 1, 1, 1, 1, -1, 0, 1, 0, 1, 1, 1, 1, -1, 0, 0, 0, 1, -1, 1, 0, -1, 0,
@@ -11277,7 +11042,6 @@ public class NtruEncryptTestVector {
     };
     return g;
   }
-
 
   static short[] get_ees1087ep1_f() {
     short[] f = {
@@ -11406,7 +11170,6 @@ public class NtruEncryptTestVector {
     return f;
   }
 
-
   static short[] get_ees1087ep1_F() {
     short[] F = {
       0, 0, -1, 0, 0, 0, -1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 1, -1, 0, 0, 0, 1,
@@ -11448,7 +11211,6 @@ public class NtruEncryptTestVector {
     };
     return F;
   }
-
 
   static short[] get_ees1087ep1_packedH() {
     short[] packedH = {
@@ -11592,7 +11354,6 @@ public class NtruEncryptTestVector {
     return packedH;
   }
 
-
   static short[] get_ees1087ep1_packedF() {
     short[] packedF = {
       0x12, 0xa8, 0x00, 0x09, 0x53, 0x53, 0x00, 0x00, 0x00, 0x51, 0x00,
@@ -11619,7 +11380,6 @@ public class NtruEncryptTestVector {
     return packedF;
   }
 
-
   static short[] get_ees1087ep1_listedF() {
     short[] listedF = {
       0x02, 0x20, 0x60, 0x0e, 0x83, 0x10, 0xe4, 0x22, 0x04, 0xe0, 0x9f,
@@ -11642,7 +11402,6 @@ public class NtruEncryptTestVector {
     return listedF;
   }
 
-
   static short[] get_ees1087ep1_encryptSeed() {
     short[] encryptSeed = {
       0x7f, 0x17, 0x88, 0xf8, 0x9c, 0x74, 0x6e, 0xdc, 0x4e, 0xd6, 0xaa,
@@ -11652,14 +11411,12 @@ public class NtruEncryptTestVector {
     return encryptSeed;
   }
 
-
   static short[] get_ees1087ep1_m() {
     short[] m = {
       0x41, 0x42, 0x43,
     };
     return m;
   }
-
 
   static short[] get_ees1087ep1_b() {
     short[] b = {
@@ -11669,7 +11426,6 @@ public class NtruEncryptTestVector {
     };
     return b;
   }
-
 
   static short[] get_ees1087ep1_Mbin() { //  = b||l||m||p0 =
     short[] Mbin = {
@@ -11695,7 +11451,6 @@ public class NtruEncryptTestVector {
     };
     return Mbin;
   }
-
 
   static short[] get_ees1087ep1_Mtrin() { //  = trinary b||l||m||p0 =
     short[] Mtrin = {
@@ -11739,7 +11494,6 @@ public class NtruEncryptTestVector {
     return Mtrin;
   }
 
-
   static short[] get_ees1087ep1_sData() { // o||m||b||h =
     short[] sData = {
       0x00, 0x05, 0x05, 0x41, 0x42, 0x43, 0x65, 0x90, 0x8c, 0x75, 0x30,
@@ -11750,7 +11504,6 @@ public class NtruEncryptTestVector {
     };
     return sData;
   }
-
 
   static short[] get_ees1087ep1_r() {
     short[] r = {
@@ -11793,7 +11546,6 @@ public class NtruEncryptTestVector {
     };
     return r;
   }
-
 
   static short[] get_ees1087ep1_R() { //  = r*h
     short[] R = {
@@ -11922,7 +11674,6 @@ public class NtruEncryptTestVector {
     return R;
   }
 
-
   static short[] get_ees1087ep1_R4() { //  r*h mod 4
     short[] R4 = {
       0x52, 0xe5, 0xf4, 0x12, 0x61, 0xae, 0xad, 0x6c, 0x68, 0xff, 0x11,
@@ -11953,7 +11704,6 @@ public class NtruEncryptTestVector {
     };
     return R4;
   }
-
 
   static short[] get_ees1087ep1_mask() {
     short[] mask = {
@@ -12000,7 +11750,6 @@ public class NtruEncryptTestVector {
     return mask;
   }
 
-
   static short[] get_ees1087ep1_mPrime() { // m'
     short[] mPrime = {
       1, 1, 0, 1, 1, 0, 1, 0, 0, 0, -1, 0, 1, -1, -1, 0, 0, 1, 0, 1, 0, 0, -1, 1, 0, 1, 0, 0, 1, 0,
@@ -12045,7 +11794,6 @@ public class NtruEncryptTestVector {
     };
     return mPrime;
   }
-
 
   static short[] get_ees1087ep1_e() {
     short[] e = {
@@ -12173,7 +11921,6 @@ public class NtruEncryptTestVector {
     };
     return e;
   }
-
 
   static short[] get_ees1087ep1_packedE() {
     short[] packedE = {
@@ -12317,7 +12064,6 @@ public class NtruEncryptTestVector {
     return packedE;
   }
 
-
   static short[] get_ees1087ep1_A() { //  = f*e
     short[] A = {
       0x025, 0x007, 0x7a9, 0x00a, 0x001, 0x7f1, 0x022, 0x006, 0x7c1,
@@ -12444,7 +12190,6 @@ public class NtruEncryptTestVector {
     };
     return A;
   }
-
 
   static short[] get_ees1087ep1_a() { //  = A reduced to [-q/2..q/2) =
     short[] a = {
@@ -12573,7 +12318,6 @@ public class NtruEncryptTestVector {
     return a;
   }
 
-
   // OID = ees1499ep1  0.6.5
   static short[] get_ees1499ep1_keygenSeed() {
     short[] keygenSeed = {
@@ -12583,7 +12327,6 @@ public class NtruEncryptTestVector {
     };
     return keygenSeed;
   }
-
 
   static short[] get_ees1499ep1_h() {
     short[] h = {
@@ -12758,7 +12501,6 @@ public class NtruEncryptTestVector {
     return h;
   }
 
-
   static short[] get_ees1499ep1_g() {
     short[] g = {
       -1, 1, -1, 1, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, -1, -1, 0, 0, -1, 1, -1, 0, 0, -1, 1, -1, 1,
@@ -12818,7 +12560,6 @@ public class NtruEncryptTestVector {
     };
     return g;
   }
-
 
   static short[] get_ees1499ep1_f() {
     short[] f = {
@@ -12993,7 +12734,6 @@ public class NtruEncryptTestVector {
     return f;
   }
 
-
   static short[] get_ees1499ep1_F() {
     short[] F = {
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -13048,7 +12788,6 @@ public class NtruEncryptTestVector {
     };
     return F;
   }
-
 
   static short[] get_ees1499ep1_packedH() {
     short[] packedH = {
@@ -13244,7 +12983,6 @@ public class NtruEncryptTestVector {
     return packedH;
   }
 
-
   static short[] get_ees1499ep1_packedF() {
     short[] packedF = {
       0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x51, 0x00, 0xbd, 0x00,
@@ -13279,7 +13017,6 @@ public class NtruEncryptTestVector {
     return packedF;
   }
 
-
   static short[] get_ees1499ep1_listedF() {
     short[] listedF = {
       0x04, 0xe0, 0xc0, 0x1c, 0x84, 0xa0, 0xdc, 0x23, 0x05, 0x80, 0xc9,
@@ -13306,7 +13043,6 @@ public class NtruEncryptTestVector {
     return listedF;
   }
 
-
   static short[] get_ees1499ep1_encryptSeed() {
     short[] encryptSeed = {
       0xb4, 0xd7, 0xbd, 0x3b, 0x15, 0x2a, 0xe6, 0xef, 0x59, 0x2b, 0x8e,
@@ -13316,14 +13052,12 @@ public class NtruEncryptTestVector {
     return encryptSeed;
   }
 
-
   static short[] get_ees1499ep1_m() {
     short[] m = {
       0x41, 0x42, 0x43,
     };
     return m;
   }
-
 
   static short[] get_ees1499ep1_b() {
     short[] b = {
@@ -13333,7 +13067,6 @@ public class NtruEncryptTestVector {
     };
     return b;
   }
-
 
   static short[] get_ees1499ep1_Mbin() { //  = b||l||m||p0 =
     short[] Mbin = {
@@ -13366,7 +13099,6 @@ public class NtruEncryptTestVector {
     };
     return Mbin;
   }
-
 
   static short[] get_ees1499ep1_Mtrin() { //  = trinary b||l||m||p0 =
     short[] Mtrin = {
@@ -13423,7 +13155,6 @@ public class NtruEncryptTestVector {
     return Mtrin;
   }
 
-
   static short[] get_ees1499ep1_sData() { // o||m||b||h =
     short[] sData = {
       0x00, 0x06, 0x05, 0x41, 0x42, 0x43, 0x74, 0x19, 0x11, 0x7a, 0x0a,
@@ -13436,7 +13167,6 @@ public class NtruEncryptTestVector {
     };
     return sData;
   }
-
 
   static short[] get_ees1499ep1_r() {
     short[] r = {
@@ -13492,7 +13222,6 @@ public class NtruEncryptTestVector {
     };
     return r;
   }
-
 
   static short[] get_ees1499ep1_R() { //  = r*h
     short[] R = {
@@ -13667,7 +13396,6 @@ public class NtruEncryptTestVector {
     return R;
   }
 
-
   static short[] get_ees1499ep1_R4() { //  r*h mod 4
     short[] R4 = {
       0x6d, 0x94, 0x21, 0x19, 0x6c, 0xe3, 0xbf, 0x71, 0xeb, 0x07, 0x03,
@@ -13708,7 +13436,6 @@ public class NtruEncryptTestVector {
     };
     return R4;
   }
-
 
   static short[] get_ees1499ep1_mask() {
     short[] mask = {
@@ -13770,7 +13497,6 @@ public class NtruEncryptTestVector {
     return mask;
   }
 
-
   static short[] get_ees1499ep1_mPrime() { // m'
     short[] mPrime = {
       -1, 1, 0, 0, 0, -1, 0, -1, 0, 0, -1, 1, 0, -1, -1, -1, 1, -1, 0, 1, -1, -1, 1, -1, 1, 0, 1, 1,
@@ -13830,7 +13556,6 @@ public class NtruEncryptTestVector {
     };
     return mPrime;
   }
-
 
   static short[] get_ees1499ep1_e() {
     short[] e = {
@@ -14004,7 +13729,6 @@ public class NtruEncryptTestVector {
     };
     return e;
   }
-
 
   static short[] get_ees1499ep1_packedE() {
     short[] packedE = {
@@ -14200,7 +13924,6 @@ public class NtruEncryptTestVector {
     return packedE;
   }
 
-
   static short[] get_ees1499ep1_A() { //  = f*e
     short[] A = {
       0x00b, 0x7fb, 0x7cd, 0x039, 0x7bb, 0x00e, 0x018, 0x035, 0x048,
@@ -14374,7 +14097,6 @@ public class NtruEncryptTestVector {
     return A;
   }
 
-
   static short[] get_ees1499ep1_a() { //  = A reduced to [-q/2..q/2) =
     short[] a = {
       0x00b, 0xffb, 0xfcd, 0x039, 0xfbb, 0x00e, 0x018, 0x035, 0x048,
@@ -14547,7 +14269,6 @@ public class NtruEncryptTestVector {
     };
     return a;
   }
-
 
   byte[] shortToByte(short[] s) {
     if (s == null) return null;

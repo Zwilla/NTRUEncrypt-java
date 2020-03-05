@@ -1,3 +1,7 @@
+-injars ${jarTmpName}
+
+-outjars out.${jarTmpName}
+
 -keepattributes Exceptions,InnerClasses,Signature,Deprecated,
                 SourceFile,LineNumberTable,*Annotation*,EnclosingMethod
 

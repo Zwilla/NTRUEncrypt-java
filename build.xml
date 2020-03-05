@@ -1,4 +1,4 @@
-<project name="jNeo" basedir="." default="test">
+<project name="jNeo" basedir="./" default="test">
   
   <property name="jarName"             value="build/target/jar/jNeo.jar"/>
   <property name="jarTmpName"          value="build/target/jar/jNeoTmp.jar"/>
@@ -7,10 +7,9 @@
   <property name="junitClassPath"      value="lib/junit.jar"/>
 
   <property name="TestVectorBuildDir" value="build/target/testgen/"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.args.jNeo" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
 
-
-  <taskdef resource="proguard/ant/task.properties" 
-           classpath="lib/proguard.jar" />
 
   <!-- Conditionally set ${javaRT} based on the OS.
        On MacOS this is in a non-standard location.
@@ -34,14 +33,16 @@
     <delete> <fileset dir="." includes="**/TEST-*"/> </delete>
   </target>
 
+  <taskdef resource="proguard/ant/task.properties" classpath="lib/proguard.jar" />
 
   <!-- Compile the classes that go into the jNeo.jar file. -->
   <target name="compile">
     <mkdir dir="${releaseBuildDir}"/>
-    <javac srcdir="src/java"
+    <javac srcdir="src/java/main"
            destdir="${releaseBuildDir}"
            debug="on"
-           includesfile="include/jNeo.classes"/>
+           includesfile="include/jNeo.classes"
+           includeantruntime="true" />
   </target>
 
 
@@ -51,25 +52,23 @@
               defaultExcludes="yes"
               classpath="${releaseBuildDir}"
               Public="yes"
-              Package="no"
-              Protected="no"
-              Private="no"
-              sourcefiles="src/java/com/securityinnovation/jNeo/OID.java,
-                           src/java/com/securityinnovation/jNeo/Random.java,
-                           src/java/com/securityinnovation/jNeo/ntruencrypt/NtruEncryptKey.java,
-                           src/java/com/securityinnovation/jNeo/CiphertextBadLengthException.java,
-                           src/java/com/securityinnovation/jNeo/DecryptionFailureException.java,
-                           src/java/com/securityinnovation/jNeo/FormatNotSupportedException.java,
-                           src/java/com/securityinnovation/jNeo/NoPrivateKeyException.java,
-                           src/java/com/securityinnovation/jNeo/NtruException.java,
-                           src/java/com/securityinnovation/jNeo/ObjectClosedException.java,
-                           src/java/com/securityinnovation/jNeo/ParamSetNotSupportedException.java,
-                           src/java/com/securityinnovation/jNeo/PlaintextBadLengthException.java"
+              Package="yes"
+              Protected="yes"
+              Private="yes"
+              sourcefiles="com/securityinnovation/jNeo/OID.java,
+                           com/securityinnovation/jNeo/Random.java,
+                           com/securityinnovation/jNeo/ntruencrypt/NtruEncryptKey.java,
+                           com/securityinnovation/jNeo/CiphertextBadLengthException.java,
+                           com/securityinnovation/jNeo/DecryptionFailureException.java,
+                           com/securityinnovation/jNeo/FormatNotSupportedException.java,
+                           com/securityinnovation/jNeo/NoPrivateKeyException.java,
+                           com/securityinnovation/jNeo/NtruException.java,
+                           com/securityinnovation/jNeo/ObjectClosedException.java,
+                           com/securityinnovation/jNeo/ParamSetNotSupportedException.java,
+                           com/securityinnovation/jNeo/PlaintextBadLengthException.java"
               excludepackagenames="org.junit.*">
     </javadoc>
   </target>
-
-  
 
   <!-- Build the jNeo.jar file. -->
   <target name="jar" depends="compile">
@@ -80,18 +79,11 @@
         <attribute name="Implementation-Vendor" value="Security Innovation"/>
         <attribute name="Implementation-Title" value="jNeo"/>
         <attribute name="Implementation-Version" value="1.0rc2"/>
+        <attribute name="Main-Class" value="com.securityinnovation.jNeo.Main" />
       </manifest>
     </jar>
-    <!-- strip the non-published APIs from the jar file -->
-    <proguard configuration="proguard/jNeo.pro">
-      <injar      name="${jarTmpName}"/>
-      <outjar     name="${jarName}"/>
-      <libraryjar name="${javaRT}"/>
-    </proguard>
-    <!-- clean up -->
-    <delete file="${jarTmpName}"/>
-  </target>
 
+  </target>
 
   <!-- Compile the test classes (BBTest and Unit test) -->
   <target name="testcompile" depends="compile">
@@ -100,7 +92,13 @@
            destdir="${testBuildDir}"
            classpath="${junitClassPath}:${releaseBuildDir}"
            debug="on"
-           includes="**/*TestCase.java"/>
+           includes="com/securityinnovation/jNeo/ntruencrypt/encoder/*TestCase.java,
+                    com/securityinnovation/jNeo/digest/*TestCase.java,
+                    com/securityinnovation/jNeo/math/*TestCase.java,
+                    com/securityinnovation/jNeo/*TestCase.java,
+                    com/securityinnovation/jNeo/inputstream/*TestCase.java,
+                    com/securityinnovation/jNeo/ntruencrypt/*TestCase.java"
+           includeantruntime="true"/>
   </target>
 
   <!-- Run the tests (BBTest and Unit test) against jNeo *.class files -->
@@ -115,7 +113,12 @@
        <formatter type="plain"/>
        <batchtest>
          <fileset dir=".">
-           <include name="**/*TestCase.java"/>
+           <include name="com/securityinnovation/jNeo/ntruencrypt/encoder/*TestCase.java,
+                    com/securityinnovation/jNeo/digest/*TestCase.java,
+                    com/securityinnovation/jNeo/math/*TestCase.java,
+                    com/securityinnovation/jNeo/*TestCase.java,
+                    com/securityinnovation/jNeo/inputstream/*TestCase.java,
+                    com/securityinnovation/jNeo/ntruencrypt/*TestCase.java"/>
          </fileset>
        </batchtest>
      </junit>
@@ -183,12 +186,16 @@
 
   <!-- Pull together data for packing a release -->
   <target name="package" depends="jar,doc">
-    <delete dir="package/jNeo"/>
-    <mkdir  dir="package/jNeo"/>
-    <copy  todir="package/jNeo/lib"     file="lib/jNeo.jar"/>
-    <copy  todir="package/jNeo/sample"  file="src/java/main/com/securityinnovation/jNeo/sample/Sample.java"/>
-    <copy  todir="package/jNeo/javadoc"> 
-      <fileset dir="build/target/doc" includes="**"/>
+    <delete dir="build/target/package/jNeo"/>
+    <mkdir  dir="build/target/package/jNeo"/>
+
+    <delete dir="build/target/package/doc"/>
+    <mkdir  dir="build/target/package/doc"/>
+
+    <copy  todir="build/target/package/jNeo/lib"     file="build/target/jar/jNeoTmp.jar"/>
+    <copy  todir="build/target/package/jNeo/example"  file="src/java/main/com/securityinnovation/jNeo/Main.java"/>
+    <copy  todir="build/target/package/jNeo/javadoc">
+      <fileset dir="build/target/package/doc" includes="**"/>
     </copy>
     <zip destfile="jNeo.zip" basedir="package"/>
   </target>

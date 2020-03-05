@@ -1,160 +1,228 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="ntruencrypt-java" default="all">
-  
-  
-  <property file="ntruencrypt-java.properties"/>
-  <!-- Uncomment the following property if no tests compilation is needed -->
-  <!-- 
-  <property name="skip.tests" value="true"/>
-   -->
-  
-  <!-- Compiler options -->
-  
-  <property name="compiler.debug" value="on"/>
-  <property name="compiler.generate.no.warnings" value="off"/>
-  <property name="compiler.args" value=""/>
-  <property name="compiler.max.memory" value="700m"/>
-  <patternset id="ignored.files">
-    <exclude name="**/*.hprof/**"/>
-    <exclude name="**/*.pyc/**"/>
-    <exclude name="**/*.pyo/**"/>
-    <exclude name="**/*.rbc/**"/>
-    <exclude name="**/*.yarb/**"/>
-    <exclude name="**/*~/**"/>
-    <exclude name="**/.DS_Store/**"/>
-    <exclude name="**/.git/**"/>
-    <exclude name="**/.hg/**"/>
-    <exclude name="**/.svn/**"/>
-    <exclude name="**/CVS/**"/>
-    <exclude name="**/__pycache__/**"/>
-    <exclude name="**/_svn/**"/>
-    <exclude name="**/vssver.scc/**"/>
-    <exclude name="**/vssver2.scc/**"/>
-  </patternset>
-  <patternset id="library.patterns">
-    <include name="*.egg"/>
-    <include name="*.jar"/>
-    <include name="*.ear"/>
-    <include name="*.klib"/>
-    <include name="*.apk"/>
-    <include name="*.swc"/>
-    <include name="*.war"/>
-    <include name="*.ane"/>
-    <include name="*.zip"/>
-  </patternset>
-  <patternset id="compiler.resources">
-    <exclude name="**/?*.java"/>
-    <exclude name="**/?*.form"/>
-    <exclude name="**/?*.class"/>
-    <exclude name="**/?*.groovy"/>
-    <exclude name="**/?*.scala"/>
-    <exclude name="**/?*.flex"/>
-    <exclude name="**/?*.kt"/>
-    <exclude name="**/?*.clj"/>
-    <exclude name="**/?*.aj"/>
-  </patternset>
-  
-  
-  <!-- Project Libraries -->
-  
-  <path id="library.lib.classpath">
-    <pathelement location="${basedir}/lib/junit.jar"/>
-    <pathelement location="${basedir}/lib/proguard.jar"/>
-    <pathelement location="${basedir}/lib/proguardgui.jar"/>
-    <pathelement location="${basedir}/lib/retrace.jar"/>
-  </path>
-  
-  
-  <!-- Global Libraries -->
-  
-  <!-- Modules -->
-  
-  
-  <!-- Module NTRUEncrypt-java -->
-  
-  <dirname property="module.ntruencrypt-java.basedir" file="${ant.file}"/>
-  
-  
-  
-  <property name="compiler.args.ntruencrypt-java" value="-encoding UTF-8 -source 11 -target 11 ${compiler.args}"/>
-  
-  <property name="ntruencrypt-java.output.dir" value="${module.ntruencrypt-java.basedir}/out/production/NTRUEncrypt-java"/>
-  <property name="ntruencrypt-java.testoutput.dir" value="${module.ntruencrypt-java.basedir}/out/test/NTRUEncrypt-java"/>
-  
-  <path id="ntruencrypt-java.module.bootclasspath">
-    <!-- Paths to be included in compilation bootclasspath -->
-  </path>
-  
-  <path id="ntruencrypt-java.module.production.classpath">
-    <path refid="library.lib.classpath"/>
-  </path>
-  
-  <path id="ntruencrypt-java.runtime.production.module.classpath">
-    <pathelement location="${ntruencrypt-java.output.dir}"/>
-    <path refid="library.lib.classpath"/>
-  </path>
-  
-  <path id="ntruencrypt-java.module.classpath">
-    <pathelement location="${ntruencrypt-java.output.dir}"/>
-    <path refid="library.lib.classpath"/>
-  </path>
-  
-  <path id="ntruencrypt-java.runtime.module.classpath">
-    <pathelement location="${ntruencrypt-java.testoutput.dir}"/>
-    <pathelement location="${ntruencrypt-java.output.dir}"/>
-    <path refid="library.lib.classpath"/>
-  </path>
-  
-  
-  <patternset id="excluded.from.module.ntruencrypt-java">
-    <patternset refid="ignored.files"/>
-  </patternset>
-  
-  <patternset id="excluded.from.compilation.ntruencrypt-java">
-    <patternset refid="excluded.from.module.ntruencrypt-java"/>
-  </patternset>
-  
-  <path id="ntruencrypt-java.module.sourcepath">
-    <dirset dir="${module.ntruencrypt-java.basedir}/../../IdeaProjects">
-      <include name="NTRUEncrypt-java"/>
-    </dirset>
-  </path>
-  
-  
-  <target name="compile.module.ntruencrypt-java" depends="compile.module.ntruencrypt-java.production,compile.module.ntruencrypt-java.tests" description="Compile module NTRUEncrypt-java"/>
-  
-  <target name="compile.module.ntruencrypt-java.production" description="Compile module NTRUEncrypt-java; production classes">
-    <mkdir dir="${ntruencrypt-java.output.dir}"/>
-    <javac includeantruntime="true" destdir="${ntruencrypt-java.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
-      <compilerarg line="${compiler.args.ntruencrypt-java}"/>
-      <bootclasspath refid="ntruencrypt-java.module.bootclasspath"/>
-      <classpath refid="ntruencrypt-java.module.production.classpath"/>
-      <src refid="ntruencrypt-java.module.sourcepath"/>
-      <patternset refid="excluded.from.compilation.ntruencrypt-java"/>
-    </javac>
-    
-    <copy todir="${ntruencrypt-java.output.dir}">
-      <fileset dir="${module.ntruencrypt-java.basedir}">
-        <patternset refid="compiler.resources"/>
-        <type type="file"/>
-      </fileset>
-    </copy>
+
+
+    <property file="ntruencrypt-java.properties"/>
+    <!-- Uncomment the following property if no tests compilation is needed -->
+    <!--
+    <property name="skip.tests" value="true"/>
+     -->
+
+    <!-- Compiler options -->
+
+    <property name="compiler.debug" value="on"/>
+    <property name="compiler.generate.no.warnings" value="off"/>
+    <property name="compiler.args" value=""/>
+    <property name="compiler.max.memory" value="700m"/>
+    <patternset id="ignored.files">
+        <exclude name="**/*.hprof/**"/>
+        <exclude name="**/*.pyc/**"/>
+        <exclude name="**/*.pyo/**"/>
+        <exclude name="**/*.rbc/**"/>
+        <exclude name="**/*.yarb/**"/>
+        <exclude name="**/*~/**"/>
+        <exclude name="**/.DS_Store/**"/>
+        <exclude name="**/.git/**"/>
+        <exclude name="**/.hg/**"/>
+        <exclude name="**/.svn/**"/>
+        <exclude name="**/CVS/**"/>
+        <exclude name="**/__pycache__/**"/>
+        <exclude name="**/_svn/**"/>
+        <exclude name="**/vssver.scc/**"/>
+        <exclude name="**/vssver2.scc/**"/>
+    </patternset>
+    <patternset id="library.patterns">
+        <include name="*.egg"/>
+        <include name="*.jar"/>
+        <include name="*.ear"/>
+        <include name="*.klib"/>
+        <include name="*.apk"/>
+        <include name="*.swc"/>
+        <include name="*.war"/>
+        <include name="*.ane"/>
+        <include name="*.zip"/>
+    </patternset>
+    <patternset id="compiler.resources">
+        <exclude name="**/?*.java"/>
+        <exclude name="**/?*.form"/>
+        <exclude name="**/?*.class"/>
+        <exclude name="**/?*.groovy"/>
+        <exclude name="**/?*.scala"/>
+        <exclude name="**/?*.flex"/>
+        <exclude name="**/?*.kt"/>
+        <exclude name="**/?*.clj"/>
+        <exclude name="**/?*.aj"/>
+    </patternset>
+
+
+    <!-- Project Libraries -->
+
+    <path id="library.lib.classpath">
+        <pathelement location="${basedir}/lib/junit.jar"/>
+        <pathelement location="${basedir}/lib/proguard.jar"/>
+        <pathelement location="${basedir}/lib/proguardgui.jar"/>
+        <pathelement location="${basedir}/lib/retrace.jar"/>
+    </path>
+
+
+    <!-- Global Libraries -->
+
+    <!-- Modules -->
+
+
+    <!-- Module NTRUEncrypt-java -->
+
+    <dirname property="module.ntruencrypt-java.basedir" file="${ant.file}"/>
+
+
+    <property name="compiler.args.ntruencrypt-java" value="-encoding UTF-8 -source 11 -target 11 ${compiler.args}"/>
+
+    <property name="ntruencrypt-java.output.dir"
+              value="${module.ntruencrypt-java.basedir}/out/production/NTRUEncrypt-java"/>
+
+    <property name="ntruencrypt-java.testoutput.dir"
+              value="${module.ntruencrypt-java.basedir}/out/test/NTRUEncrypt-java"/>
+
+    <path id="ntruencrypt-java.module.bootclasspath">
+        <!-- Paths to be included in compilation bootclasspath -->
+    </path>
+
+    <path id="ntruencrypt-java.module.production.classpath">
+        <path refid="library.lib.classpath"/>
+    </path>
+
+    <path id="ntruencrypt-java.runtime.production.module.classpath">
+        <pathelement location="${ntruencrypt-java.output.dir}"/>
+        <path refid="library.lib.classpath"/>
+    </path>
+
+    <path id="ntruencrypt-java.module.classpath">
+        <pathelement location="${ntruencrypt-java.output.dir}"/>
+        <path refid="library.lib.classpath"/>
+    </path>
+
+    <path id="ntruencrypt-java.runtime.module.classpath">
+        <pathelement location="${ntruencrypt-java.testoutput.dir}"/>
+        <pathelement location="${ntruencrypt-java.output.dir}"/>
+        <path refid="library.lib.classpath"/>
+    </path>
+
+
+    <patternset id="excluded.from.module.ntruencrypt-java">
+        <patternset refid="ignored.files"/>
+    </patternset>
+
+    <patternset id="excluded.from.compilation.ntruencrypt-java">
+        <patternset refid="excluded.from.module.ntruencrypt-java"/>
+    </patternset>
+
+    <path id="ntruencrypt-java.module.sourcepath">
+        <dirset dir="${module.ntruencrypt-java.basedir}/../../IdeaProjects">
+            <include name="NTRUEncrypt-java"/>
+        </dirset>
+    </path>
+
+  <property name="jarName"             value="build/target/jar/jNeo.jar"/>
+  <property name="jarTmpName"          value="build/target/jar/jNeoTmp.jar"/>
+  <property name="releaseBuildDir"     value="build/target/classes"/>
+  <property name="testBuildDir"        value="build/target/test"/>
+  <property name="junitClassPath"      value="lib/junit.jar"/>
+
+  <property name="TestVectorBuildDir" value="build/target/testgen/"/>
+
+    <condition property="javaRT"
+               value="${java.home}/../Classes/classes.jar"
+               else="${java.home}/lib/rt.jar">
+        <os family="mac"/>
+    </condition>
+
+    <taskdef resource="proguard/ant/task.properties"
+    classpath="lib/proguard.jar" />
+    <proguard>
+        -injars      in.jar
+        -outjars     out.jar
+        -libraryjars ${java.home}/lib/rt.jar
+
+        -keepclasseswithmembers public class * {
+        public static void main(java.lang.String[]);
+        }
+
+        -keepattributes Exceptions,InnerClasses,Signature,Deprecated,
+        SourceFile,LineNumberTable,*Annotation*,EnclosingMethod
+
+        -keep public class com.securityinnovation.jNeo.OID {
+        public *;
+        }
+
+        -keep public class com.securityinnovation.jNeo.*Exception {
+        public *;
+        }
+
+        -keep public class com.securityinnovation.jNeo.util.Random {
+        public *;
+        }
+
+        -keep public class com.securityinnovation.jNeo.ntruencrypt.NtruEncryptKey {
+        public *;
+        }
+
+    </proguard>
+
+    <!-- Build the jNeo.jar file. -->
+  <target name="jar" depends="compile.module.ntruencrypt-java">
+    <mkdir dir="lib"/>
+      <mkdir dir="build/target/classes"/>
+    <!-- build the jar file -->
+    <jar destfile="${jarTmpName}" basedir="${releaseBuildDir}">
+      <manifest>
+        <attribute name="Implementation-Vendor" value="Security Innovation"/>
+        <attribute name="Implementation-Title" value="jNeo"/>
+        <attribute name="Implementation-Version" value="1.0rc2"/>
+        <attribute name="Main-Class" value="com.securityinnovation.jNeo.Main" />
+      </manifest>
+    </jar>
   </target>
-  
-  <target name="compile.module.ntruencrypt-java.tests" depends="compile.module.ntruencrypt-java.production" description="compile module NTRUEncrypt-java; test classes" unless="skip.tests"/>
-  
-  <target name="clean.module.ntruencrypt-java" description="cleanup module">
-    <delete dir="${ntruencrypt-java.output.dir}"/>
-    <delete dir="${ntruencrypt-java.testoutput.dir}"/>
-  </target>
-  
-  <target name="init" description="Build initialization">
-    <!-- Perform any build initialization in this target -->
-  </target>
-  
-  <target name="clean" depends="clean.module.ntruencrypt-java" description="cleanup all"/>
-  
-  <target name="build.modules" depends="init, clean, compile.module.ntruencrypt-java" description="build all modules"/>
-  
-  <target name="all" depends="build.modules" description="build all"/>
+
+    <target name="compile.module.ntruencrypt-java"
+            depends="compile.module.ntruencrypt-java.production,compile.module.ntruencrypt-java.tests"
+            description="Compile module NTRUEncrypt-java"/>
+
+    <target name="compile.module.ntruencrypt-java.production"
+            description="Compile module NTRUEncrypt-java; production classes">
+        <mkdir dir="${ntruencrypt-java.output.dir}"/>
+        <javac includeantruntime="true" destdir="${ntruencrypt-java.output.dir}" debug="${compiler.debug}"
+               nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+            <compilerarg line="${compiler.args.ntruencrypt-java}"/>
+            <bootclasspath refid="ntruencrypt-java.module.bootclasspath"/>
+            <classpath refid="ntruencrypt-java.module.production.classpath"/>
+            <src refid="ntruencrypt-java.module.sourcepath"/>
+            <patternset refid="excluded.from.compilation.ntruencrypt-java"/>
+        </javac>
+
+        <copy todir="${ntruencrypt-java.output.dir}">
+            <fileset dir="${module.ntruencrypt-java.basedir}">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile.module.ntruencrypt-java.tests" depends="compile.module.ntruencrypt-java.production"
+            description="compile module NTRUEncrypt-java; test classes" unless="skip.tests"/>
+
+    <target name="clean.module.ntruencrypt-java" description="cleanup module">
+        <delete dir="${ntruencrypt-java.output.dir}"/>
+        <delete dir="${ntruencrypt-java.testoutput.dir}"/>
+    </target>
+
+    <target name="init" description="Build initialization">
+        <!-- Perform any build initialization in this target -->
+    </target>
+
+    <target name="clean" depends="clean.module.ntruencrypt-java" description="cleanup all"/>
+
+    <target name="build.modules" depends="init, clean, compile.module.ntruencrypt-java, jar"
+            description="build all modules"/>
+
+    <target name="all" depends="build.modules" description="build all"/>
 </project>
