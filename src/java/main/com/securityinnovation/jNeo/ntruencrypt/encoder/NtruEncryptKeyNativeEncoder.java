@@ -22,7 +22,6 @@ import com.securityinnovation.jNeo.FormatNotSupportedException;
 import com.securityinnovation.jNeo.ParamSetNotSupportedException;
 import com.securityinnovation.jNeo.math.FullPolynomial;
 import com.securityinnovation.jNeo.math.BitPack;
-import com.securityinnovation.jNeo.ntruencrypt.encoder.KeyFormatterUtil;
 
 import com.securityinnovation.jNeo.ntruencrypt.KeyParams;
 

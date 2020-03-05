@@ -18,8 +18,6 @@
  */
 package com.securityinnovation.jNeo.digest;
 
-import com.securityinnovation.jNeo.digest.Digest;
-
 /* This class implements the SHA-1 message digest algorithm. */
 class Sha1 extends Digest {
   /* Length of the final hash (in bytes). */

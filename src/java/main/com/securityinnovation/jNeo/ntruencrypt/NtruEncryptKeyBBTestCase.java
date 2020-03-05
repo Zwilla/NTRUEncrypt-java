@@ -20,12 +20,12 @@ package com.securityinnovation.jNeo.ntruencrypt;
 
 import java.util.Arrays;
 
+import com.securityinnovation.jNeo.util.Random;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 import com.securityinnovation.jNeo.OID;
-import com.securityinnovation.jNeo.util.Random;
 import com.securityinnovation.jNeo.NtruException;
 import com.securityinnovation.jNeo.CiphertextBadLengthException;
 import com.securityinnovation.jNeo.PlaintextBadLengthException;

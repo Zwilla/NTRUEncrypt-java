@@ -19,6 +19,7 @@
 package com.securityinnovation.jNeo.inputstream;
 
 import com.securityinnovation.jNeo.digest.DigestAlgorithm;
+
 import java.io.InputStream;
 import java.io.IOException;
 

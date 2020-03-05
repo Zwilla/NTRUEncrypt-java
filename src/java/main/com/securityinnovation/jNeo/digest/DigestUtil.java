@@ -18,8 +18,6 @@
  */
 package com.securityinnovation.jNeo.digest;
 
-import com.securityinnovation.jNeo.digest.Digest;
-
 /*
  * This class holds utility methods for manipulating <code>Digest</code> objects. These methods are
  * public to the com.securityinnovation.jNeo.digest package.

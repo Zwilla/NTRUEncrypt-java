@@ -186,7 +186,7 @@
     <delete dir="package/jNeo"/>
     <mkdir  dir="package/jNeo"/>
     <copy  todir="package/jNeo/lib"     file="lib/jNeo.jar"/>
-    <copy  todir="package/jNeo/sample"  file="src/java/com/securityinnovation/jNeo/sample/Sample.java"/>
+    <copy  todir="package/jNeo/sample"  file="src/java/main/com/securityinnovation/jNeo/sample/Sample.java"/>
     <copy  todir="package/jNeo/javadoc"> 
       <fileset dir="build/target/doc" includes="**"/>
     </copy>
@@ -204,7 +204,7 @@
 
   <!-- Create NtruEncrypt test vectors -->
   <target name="testgen" depends="compile-testgen">
-    <java classname="src.java.com.securityinnovation.testvectors.NtruEncryptTestVectorGenerator"
+    <java classname="com.securityinnovation.testvectors.NtruEncryptTestVectorGenerator"
           classpath="${TestVectorBuildDir}"
           output="TestVectors.txt"/>
   </target>

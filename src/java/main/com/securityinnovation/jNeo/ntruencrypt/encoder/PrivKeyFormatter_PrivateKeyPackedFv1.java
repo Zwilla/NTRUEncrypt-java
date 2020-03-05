@@ -18,34 +18,39 @@
  */
 package com.securityinnovation.jNeo.ntruencrypt.encoder;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import com.securityinnovation.jNeo.ParamSetNotSupportedException;
-import com.securityinnovation.jNeo.math.FullPolynomial;
 import com.securityinnovation.jNeo.math.BitPack;
-import com.securityinnovation.jNeo.ntruencrypt.encoder.KeyFormatterUtil;
-
+import com.securityinnovation.jNeo.math.FullPolynomial;
+import com.securityinnovation.jNeo.math.MGF_TP_1;
 import com.securityinnovation.jNeo.ntruencrypt.KeyParams;
 
-class PrivKeyFormatter_PrivateKeyListedFv1 implements PrivKeyFormatter {
+class PrivKeyFormatter_PrivateKeyPackedFv1 implements PrivKeyFormatter {
   private static final byte tag = NtruEncryptKeyNativeEncoder.PRIVATE_KEY_DEFAULT_v1;
 
   public byte[] encode(KeyParams keyParams, FullPolynomial h, FullPolynomial f) {
     // Sanity-check inputs
-    if ((h.p.length != keyParams.N) || (f.p.length != keyParams.N)) return null;
+    if ((h.p.length != keyParams.N) || (f.p.length != keyParams.N))
+      throw new IllegalArgumentException("exported key invalid");
 
-    // Convert f to a listed F.
+    // Convert f to a packed F.
     FullPolynomial F = KeyFormatterUtil.recoverF(f);
+    ByteArrayOutputStream os = new ByteArrayOutputStream((f.p.length + 4) / 5);
+    MGF_TP_1.encodeTrinomial(F, os);
+    byte[] encodedF = os.toByteArray();
 
     // Allocate output buffer
     int len =
         (KeyFormatterUtil.fillHeader(tag, keyParams.OIDBytes, null)
-            + BitPack.pack(keyParams.N, keyParams.q)
-            + BitPack.pack(2 * keyParams.df, keyParams.N));
+         + BitPack.pack(keyParams.N, keyParams.q)
+         + encodedF.length);
     byte[] ret = new byte[len];
 
     // Encode the output
     int offset = KeyFormatterUtil.fillHeader(tag, keyParams.OIDBytes, ret);
     offset += BitPack.pack(keyParams.N, keyParams.q, h.p, 0, ret, offset);
-    offset += KeyFormatterUtil.packListedCoefficients(F, keyParams.df, keyParams.df, ret, offset);
+    System.arraycopy(encodedF, 0, ret, offset, encodedF.length);
     return ret;
   }
 
@@ -57,9 +62,9 @@ class PrivKeyFormatter_PrivateKeyListedFv1 implements PrivKeyFormatter {
     // Make sure the input will be fully consumed
     int headerLen = KeyFormatterUtil.getHeaderEndOffset(keyBlob);
     int packedHLen = BitPack.unpack(keyParams.N, keyParams.q);
-    int listedFLen = BitPack.unpack(2 * keyParams.df, keyParams.N);
-    if (headerLen + packedHLen + listedFLen != keyBlob.length)
-      throw new IllegalArgumentException("blob length invalid");
+    int packedFLen = (keyParams.N + 4) / 5;
+    if (headerLen + packedHLen + packedFLen != keyBlob.length)
+      throw new IllegalArgumentException("key blob length invalid");
 
     // Recover h
     int offset = headerLen;
@@ -67,10 +72,9 @@ class PrivKeyFormatter_PrivateKeyListedFv1 implements PrivKeyFormatter {
     offset += BitPack.unpack(keyParams.N, keyParams.q, keyBlob, offset, h.p, 0);
 
     // Recover F
-    FullPolynomial f = new FullPolynomial(keyParams.N);
-    offset +=
-        KeyFormatterUtil.unpackListedCoefficients(
-            f, keyParams.N, keyParams.df, keyParams.df, keyBlob, offset);
+    ByteArrayInputStream is = new ByteArrayInputStream(keyBlob, offset, keyBlob.length - offset);
+    FullPolynomial f = MGF_TP_1.genTrinomial(keyParams.N, is);
+
     // Compute f = 1+p*F
     for (int i = 0; i < f.p.length; i++) f.p[i] *= keyParams.p;
     f.p[0]++;

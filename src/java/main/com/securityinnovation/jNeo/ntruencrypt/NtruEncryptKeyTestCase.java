@@ -18,15 +18,14 @@
  */
 package com.securityinnovation.jNeo.ntruencrypt;
 
-import com.securityinnovation.jNeo.ntruencrypt.NtruEncryptKey;
 import java.io.ByteArrayInputStream;
 
+import com.securityinnovation.jNeo.NtruException;
+import com.securityinnovation.jNeo.OID;
+import com.securityinnovation.jNeo.math.FullPolynomial;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import com.securityinnovation.jNeo.OID;
-import com.securityinnovation.jNeo.NtruException;
-import com.securityinnovation.jNeo.math.FullPolynomial;
 import com.securityinnovation.testvectors.NtruEncryptTestVector;
 
 public class NtruEncryptKeyTestCase {

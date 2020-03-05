@@ -18,9 +18,6 @@
  */
 package com.securityinnovation.jNeo.math;
 
-import com.securityinnovation.jNeo.math.BitPack;
-import java.util.Arrays;
-
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -18,8 +18,8 @@
  */
 package com.securityinnovation.jNeo.inputstream;
 
-import org.junit.Test;
 import com.securityinnovation.jNeo.digest.DigestAlgorithm;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
 

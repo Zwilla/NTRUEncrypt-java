@@ -21,7 +21,6 @@ package com.securityinnovation.jNeo.inputstream;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import com.securityinnovation.jNeo.inputstream.IGF2;
 import java.io.ByteArrayInputStream;
 
 public class IGF2TestCase {

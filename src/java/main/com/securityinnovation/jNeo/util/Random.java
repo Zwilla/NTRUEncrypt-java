@@ -19,7 +19,6 @@
 package com.securityinnovation.jNeo.util;
 
 import com.securityinnovation.jNeo.inputstream.X982Drbg;
-import com.securityinnovation.jNeo.digest.Sha256;
 
 import static com.securityinnovation.jNeo.digest.DigestAlgorithm.sha256;
 

@@ -20,7 +20,6 @@ package com.securityinnovation.jNeo.ntruencrypt.encoder;
 
 import com.securityinnovation.jNeo.ParamSetNotSupportedException;
 import com.securityinnovation.jNeo.math.BitPack;
-import com.securityinnovation.jNeo.ntruencrypt.encoder.KeyFormatterUtil;
 
 import com.securityinnovation.jNeo.math.FullPolynomial;
 import com.securityinnovation.jNeo.ntruencrypt.KeyParams;
@@ -33,7 +32,7 @@ class PubKeyFormatter_PUBLIC_KEY_v1 implements PubKeyFormatter {
 
     int len =
         (KeyFormatterUtil.fillHeader(tag, keyParams.OIDBytes, null)
-            + BitPack.pack(keyParams.N, keyParams.q));
+         + BitPack.pack(keyParams.N, keyParams.q));
     byte[] ret = new byte[len];
 
     int offset = KeyFormatterUtil.fillHeader(tag, keyParams.OIDBytes, ret);

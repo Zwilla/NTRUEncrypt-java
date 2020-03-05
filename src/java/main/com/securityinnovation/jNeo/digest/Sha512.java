@@ -18,8 +18,6 @@
  */
 package com.securityinnovation.jNeo.digest;
 
-import com.securityinnovation.jNeo.digest.Digest;
-
 import java.util.Arrays;
 
 class Sha512 extends Digest {

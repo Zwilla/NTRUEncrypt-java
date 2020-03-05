@@ -18,8 +18,6 @@
  */
 package com.securityinnovation.jNeo.digest;
 
-import com.securityinnovation.jNeo.digest.Digest;
-
 /* This class implements the SHA-256 message digest algorithm. */
 public class Sha256 extends Digest {
 

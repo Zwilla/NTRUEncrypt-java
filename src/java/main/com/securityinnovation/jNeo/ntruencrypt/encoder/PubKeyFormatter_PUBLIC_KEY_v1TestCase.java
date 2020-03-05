@@ -20,12 +20,12 @@ package com.securityinnovation.jNeo.ntruencrypt.encoder;
 
 import java.io.ByteArrayOutputStream;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
-
 import com.securityinnovation.jNeo.NtruException;
 import com.securityinnovation.jNeo.ParamSetNotSupportedException;
 import com.securityinnovation.jNeo.math.FullPolynomial;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 import com.securityinnovation.jNeo.ntruencrypt.KeyParams;
 import com.securityinnovation.testvectors.NtruEncryptTestVector;
 
