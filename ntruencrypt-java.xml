@@ -75,7 +75,7 @@
     <dirname property="module.ntruencrypt-java.basedir" file="${ant.file}"/>
 
 
-    <property name="compiler.args.ntruencrypt-java" value="-encoding UTF-8 -source 11 -target 11 ${compiler.args}"/>
+    <property name="compiler.args.ntruencrypt-java" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
 
     <property name="ntruencrypt-java.output.dir"
               value="${module.ntruencrypt-java.basedir}/out/production/NTRUEncrypt-java"/>

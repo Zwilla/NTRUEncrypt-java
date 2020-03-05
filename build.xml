@@ -1,6 +1,7 @@
 <project name="jNeo" basedir="./" default="test">
   
   <property name="jarName"             value="build/target/jar/jNeo.jar"/>
+  <property name="jarDir"             value="build/target/jar"/>
   <property name="jarTmpName"          value="build/target/jar/jNeoTmp.jar"/>
   <property name="releaseBuildDir"     value="build/target/classes"/>
   <property name="testBuildDir"        value="build/target/test"/>
@@ -82,7 +83,10 @@
         <attribute name="Main-Class" value="com.securityinnovation.jNeo.Main" />
       </manifest>
     </jar>
-
+    <copy file="${jarTmpName}" tofile="${jarName}"/>
+    <copy file="privKey.key" tofile="${jarDir}/privKey.key"/>
+    <copy file="pubKey.key" tofile="${jarDir}/pubKey.key"/>
+    <copy file="TestFilePlain.xml" tofile="${jarDir}/TestFilePlain.xml"/>
   </target>
 
   <!-- Compile the test classes (BBTest and Unit test) -->
@@ -195,7 +199,7 @@
     <copy  todir="build/target/package/jNeo/lib"     file="build/target/jar/jNeoTmp.jar"/>
     <copy  todir="build/target/package/jNeo/example"  file="src/java/main/com/securityinnovation/jNeo/Main.java"/>
     <copy  todir="build/target/package/jNeo/javadoc">
-      <fileset dir="build/target/package/doc" includes="**"/>
+      <fileset dir="build/target/package/doc" includes="doc/*"/>
     </copy>
     <zip destfile="jNeo.zip" basedir="package"/>
   </target>
