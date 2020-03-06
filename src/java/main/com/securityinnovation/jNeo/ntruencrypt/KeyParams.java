@@ -136,15 +136,20 @@ public class KeyParams {
    * @throws ParamsetNotSupportedException if the OID is not known.
    */
   public static KeyParams getKeyParams(OID paramSet) throws ParamSetNotSupportedException {
-    if (numParamSets == 0) initParamSets();
-    for (int i = 0; i < numParamSets; i++)
+    if (numParamSets == 0) {
+      initParamSets();
+    }
+
+    for (int i = 0; i < numParamSets; i++) {
       if (paramSet == paramSets[i].OIDEnum) return paramSets[i];
+    }
+
     throw new ParamSetNotSupportedException(paramSet);
   }
 
 
   private static void initParamSets() {
-    paramSets = new KeyParams[12];
+    paramSets = new KeyParams[13]; // add 1 for every new KeyParam
     paramSets[numParamSets++] =
         new KeyParams(
             OID.ees401ep1,
@@ -379,23 +384,44 @@ public class KeyParams {
     paramSets[numParamSets++] =
         new KeyParams(
             OID.ees1499ep1,
-            1499,
-            3,
-            2048, // id, N, p, q
-            79,
-            499,
-            1,
+            1499, /* N */
+            3, //always 3
+            2048, /* q */ // id, N, p, q
+            79, /* df, dr */
+            499, /* dg */
+            1, /* lLen always 1*/
             256, // df, dg. lLen, db
-            247, // maxMsgLenBytes,
+            247, /* maxMsgLenBytes */
             2240,
-            1498, // bufferLenBits, bufferLenTrits
+            1498, /* N -1*/ // bufferLenBits, bufferLenTrits
             79, // dm0
             sha256,
             sha256, // mgfHash, igfHash
-            79,
-            13,
-            17,
+            79, /* dm0 */
+            13, /* c */
+            17, /* min. no. of hash calls for IGF-2 */
             19, // dr, c, minCallsR, minCallsMask
             256); // pkLen
+    paramSets[numParamSets++] =
+            new KeyParams(
+                    OID.EES587EP1,
+                    587, /* N 2^11-(2^11 mod 587) */
+                    3, //always 3
+                    2048, /* q */ // id, N, p, q
+                    10 + (10 << 8) + (8 << 16), /* df, dr CALC: 10 + (10 << 8) + (8 << 16) = 526858 */
+                    196, /* dg */
+                    1, /* lLen always 1*/
+                    256, // df, dg. lLen, db
+                    76, /* maxMsgLenBytes */
+                    2240,
+                    586, /* N -1*/ // bufferLenBits, bufferLenTrits
+                    79, /* dm0 */
+                    sha256,
+                    sha256, // mgfHash, igfHash
+                    157, /* dm0 */
+                    11, /* c */
+                    13, /* min. no. of hash calls for IGF-2 */
+                    7,  /* min. no. of hash calls for MGF-TP-1 */ // dr, c, minCallsR, minCallsMask
+                    256); // pkLen
   }
 }

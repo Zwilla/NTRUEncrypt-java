@@ -40,6 +40,15 @@ public enum OID {
    * </table>
    */
   ees401ep1(0, 2, 4),
+  ees401ep2(0,2,16),
+  EES587EP1(0,5,17),
+/*  EES401EP2(0,2,16),
+  EES439EP1(0,3,16),
+  EES593EP1(0,5,16),
+  EES743EP1(0,6,16),
+  EES443EP1(0,3,17),
+  EES587EP1(0,5,17),*/
+
 
   /*
    * The parameter set identifier for ees449ep1.

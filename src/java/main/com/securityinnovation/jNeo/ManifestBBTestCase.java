@@ -24,7 +24,7 @@ import static org.junit.Assert.*;
 import java.util.jar.*;
 
 public class ManifestBBTestCase {
-  static String jarfileName = "lib/jNeo.jar";
+  static String jarfileName = "build/target/jar/jNeo.jar";
 
   String getAttribute(String attrName) throws java.io.IOException {
     JarFile jarfile = new JarFile(jarfileName);

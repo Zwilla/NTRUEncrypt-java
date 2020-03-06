@@ -82,9 +82,9 @@
       </manifest>
     </jar>
     <copy file="${jarTmpName}" tofile="${jarName}"/>
-    <copy file="privKey.key" tofile="${jarDir}/privKey.key"/>
-    <copy file="pubKey.key" tofile="${jarDir}/pubKey.key"/>
-    <copy file="TestFilePlain.xml" tofile="${jarDir}/TestFilePlain.xml"/>
+    <copy failonerror="No" file="privKey.key" tofile="${jarDir}/privKey.key"/>
+    <copy failonerror="No" file="pubKey.key" tofile="${jarDir}/pubKey.key"/>
+    <copy failonerror="No" file="TestFilePlain.xml" tofile="${jarDir}/TestFilePlain.xml"/>
   </target>
 
   <!-- Compile the test classes (BBTest and Unit test) -->

@@ -30,6 +30,7 @@ import java.io.FileOutputStream;
 import java.io.DataOutputStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import javax.crypto.Cipher;
@@ -252,7 +253,6 @@ public class Main {
     System.out.println("EXAMPLE (encrypt)  : $java -jar jNeo.jar --privkey privKey.key --pubkey pubKey.key --encrypt TestFilePlain.xml ");
     System.out.println("EXAMPLE (encrypt)  : $java -jar jNeo.jar --privkey privKey.key --pubkey pubKey.key --encryptPrivate TestFilePlain.xml ");
     System.out.println("EXAMPLE (decrypt)  : $java -jar jNeo.jar --privkey privKey.key --pubkey pubKey.key --decrypt TestFilePlain.xml.pub.enc");
-
   }
 
   /**
@@ -277,14 +277,9 @@ public class Main {
     String privkeyFile = "privKey.key";
     boolean pubkeyFileFound;
     boolean privkeyFileFound;
+    privkeyFileFound = Files.exists(Paths.get(privkeyFile));
+    pubkeyFileFound = Files.exists(Paths.get(pubkeyFile));
 
-    if(pubkeyFileFound = Files.exists(Paths.get(pubkeyFile))){
-      System.out.println("PubKey found!");
-    }
-
-    if(privkeyFileFound = Files.exists(Paths.get(privkeyFile))){
-      System.out.println("PrivatKey found!");
-    }
 
     if(args.length == 0){
       usage();
@@ -301,6 +296,9 @@ public class Main {
           }
           // Setup PRNG
           pubkeyFile = args[i + 1];
+          if(pubkeyFileFound = Files.exists(Paths.get(pubkeyFile))){
+            System.out.printf("PubKey set:%s%n", FileSystems.getDefault().getPath(pubkeyFile).toAbsolutePath());
+          }
           break;
         }
 
@@ -312,6 +310,9 @@ public class Main {
           }
           // Setup PRNG
           privkeyFile = args[i + 1];
+          if(privkeyFileFound = Files.exists(Paths.get(privkeyFile))){
+            System.out.printf("PrivatKey set:%s%n", FileSystems.getDefault().getPath(privkeyFile).toAbsolutePath());
+          }
           break;
         }
         default:
@@ -341,28 +342,6 @@ public class Main {
       }
 
       switch (args[i]) {
-        case "--pubkey":
-          {
-            if (args[i + 1].startsWith("--")) {
-              usage();
-              System.exit(1);
-            }
-            // Setup PRNG
-            pubkeyFile = args[i + 1];
-            break;
-          }
-
-        case "--privkey":
-          {
-            if (args[i + 1].startsWith("--")) {
-              usage();
-              System.exit(1);
-            }
-            // Setup PRNG
-            privkeyFile = args[i + 1];
-            break;
-          }
-
         case "--setup":
           {
             String requestedOid;
@@ -370,48 +349,54 @@ public class Main {
             if (args[i].startsWith("--")) {
               // usage();
               // setup now default Oid
-              requestedOid = "ees1499ep1";
+              requestedOid = "EES587EP1"; // ees1499ep1
               // ees401ep1,ees449ep1,ees677ep1,ees1087ep2,ees541ep1,ees613ep1,ees887ep1,ees1171ep1,ees659ep1,ees761ep1,ees1087ep1,ees1499ep1
             } else {
               requestedOid = args[i + 1];
             }
 
             Random prng = createSeededRandom();
-
             OID oid = parseOIDName(requestedOid);
-            for (int xp = 0; xp < args.length; xp++) {
-              switch (args[xp]) {
-                case "--privkey":
-                  {
-                    if (args[xp + 1].startsWith("--")) {
-                      usage();
-                      System.exit(1);
-                    }
-                    // Setup PRNG
-                    privkeyFile = args[xp + 1];
-                    break;
-                  }
-                case "--pubkey":
-                  {
-                    if (args[xp + 1].startsWith("--")) {
-                      usage();
-                      System.exit(1);
-                    }
-                    // Setup PRNG
-                    pubkeyFile = args[xp + 1];
-                    break;
-                  }
-              }
-            }
+
             if (privkeyFileFound || pubkeyFileFound)
             {
               System.out.printf("%s and/or %s found, move them first to a secure place! bye!\n",
                       FileSystems.getDefault().getPath(privkeyFile).toAbsolutePath(),
                       FileSystems.getDefault().getPath(pubkeyFile).toAbsolutePath());
+
+              if (privkeyFileFound){
+                Path temp = Files.move
+                      (FileSystems.getDefault().getPath(privkeyFile).toAbsolutePath(), Paths.get(String.valueOf(FileSystems.getDefault().getPath(privkeyFile).toAbsolutePath())+ ".bkp"));
+                if(temp != null)
+                {
+                  System.out.println("privkeyFile renamed and moved successfully");
+                }
+                else
+                {
+                  System.out.println("privkeyFile Failed to move the file");
+                }
+
+              }
+              if (pubkeyFileFound){
+                Path temp = Files.move
+                        (FileSystems.getDefault().getPath(pubkeyFile).toAbsolutePath(), Paths.get(String.valueOf(FileSystems.getDefault().getPath(pubkeyFile).toAbsolutePath())+ ".bkp"));
+                if(temp != null)
+                {
+                  System.out.println("pubkeyFile renamed and moved successfully");
+                }
+                else
+                {
+                  System.out.println("pubkeyFile to move the file");
+                }
+
+              }
+
               System.exit(1);
               break;
             }
             setupNtruEncryptKey(prng, oid, pubkeyFile, privkeyFile);
+            System.out.printf("PrivatKey generated:%s%n", FileSystems.getDefault().getPath(privkeyFile).toAbsolutePath());
+            System.out.printf("PublicKey generated:%s%n", FileSystems.getDefault().getPath(pubkeyFile).toAbsolutePath());
             break;
           }
 
